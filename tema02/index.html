@@ -1,178 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Navegadores y motores</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navegadores</title>
 
-  <!-- CSS de Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Iconos de Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
-
-  <!-- CSS después del de Bootstrap -->
-  <link href="css/estilos.css" rel="stylesheet">
+    <!-- CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+   
 </head>
 
 <body>
 
-  <!-- Barra de navegación -->
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container">
+    <!-- Aquí va tu contenido -->
 
-      <a class="navbar-brand" href="index.html">
-        Giulshen Hueso Cruz
-      </a>
-
-      <div class="navbar-nav">
-        <a class="nav-link active" href="index.html">Navegadores</a>
-        <a class="nav-link" href="interaccion.html">Interacción</a>
-      </div>
-
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Giulshen</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Mostrar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Navegadores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="interaccion.html">Interacción</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h2>Tabla de navegadores principales:</h2>
+   
+    <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Navegador</th>
+      <th>Empresa</th>
+      <th>Motor de Renderizado</th>
+      <th>Motor de JavaScript</th>
+      <th>¿Está basado en Chromium?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Edge</td>
+      <td>Microsoft</td>
+      <td>Blink</td>
+      <td>V8</td>
+      <td>Sí</td>
+    </tr>
+    <tr>
+      <td>Opera</td>
+      <td>Opera</td>
+      <td>Blink</td>
+      <td>V8</td>
+      <td>Sí</td>
+    <tr>
+      <td>Chrome</td>
+      <td>Google</td>
+      <td>Blink</td>
+      <td>V8</td>
+      <td>Sí</td>
+    </tr>
+    </tr>
+    <tr>
+      <td>Firefox</td>
+      <td>Mozilla</td>
+      <td>Gecko</td>
+      <td>SpiderMonkey</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Safari</td>
+      <td>Apple</td>
+      <td>WebKit</td>
+      <td>JavaScriptCore</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
     </div>
-  </nav>
-
-
-  <!-- Contenido principal -->
-  <div class="container mt-4">
-
-    <div class="row">
-
-      <div class="col">
-
-        <h1>Navegadores y motores</h1>
-
-        <p>
-          Hoy en día, muchos navegadores utilizan Chromium porque es un proyecto
-          de código abierto que permite compartir una base común. Chrome, Edge y
-          Opera utilizan el motor Blink, en cambio, Firefox utiliza Gecko y
+    <div>
+     <h2>¿Por qué la mayoría comparten una base en común?</h2>  
+     <p>
+          Hoy en día, los navegadores usan Chromium porque es de código
+          código abierto y comparte una base común. Chrome, Edge y
+          Opera usan el motor Blink, en cambio, Firefox utiliza Gecko y
           Safari utiliza WebKit. Esto hace que muchas páginas funcionen de forma
-          parecida en diferentes navegadores, aunque pueden existir diferencias.
+          parecida en diferentes navegadores, aunque haya diferencias.
           Por eso, al desarrollar una página web es importante probarla en varios
           navegadores y también en dispositivos móviles para comprobar que todo
           funciona correctamente.
         </p>
 
-
-        <!-- Tabla de navegadores -->
-        <h2 class="mt-4">Principales navegadores</h2>
-
-        <div class="table-responsive">
-
-          <table class="table table-striped table-bordered">
-
-            <thead>
-              <tr>
-                <th>Navegador</th>
-                <th>Empresa</th>
-                <th>Motor de renderizado</th>
-                <th>Motor JavaScript</th>
-                <th>¿Basado en Chromium?</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr>
-                <td>Chrome</td>
-                <td>Google</td>
-                <td>Blink</td>
-                <td>V8</td>
-                <td>Sí</td>
-              </tr>
-
-              <tr>
-                <td>Firefox</td>
-                <td>Mozilla</td>
-                <td>Gecko</td>
-                <td>SpiderMonkey</td>
-                <td>No</td>
-              </tr>
-
-              <tr>
-                <td>Safari</td>
-                <td>Apple</td>
-                <td>WebKit</td>
-                <td>JavaScriptCore</td>
-                <td>No</td>
-              </tr>
-
-              <tr>
-                <td>Edge</td>
-                <td>Microsoft</td>
-                <td>Blink</td>
-                <td>V8</td>
-                <td>Sí</td>
-              </tr>
-
-              <tr>
-                <td>Opera</td>
-                <td>Opera</td>
-                <td>Blink</td>
-                <td>V8</td>
-                <td>Sí</td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-
-        <!-- Ejemplo de compatibilidad -->
-        <div class="card mt-4">
-
-          <div class="card-body">
-
-            <h2 class="card-title">Ejemplo de compatibilidad</h2>
-
-            <p class="card-text">
-              Un ejemplo de diferencia de compatibilidad es CSS Feature Queries
-              mediante la regla <code>@supports</code>. Esta característica
-              permite comprobar si un navegador admite una determinada
-              propiedad o función de CSS. Su compatibilidad puede variar
-              según la versión del navegador.
-            </p>
-
-            <p class="card-text">
-              Fuente:
-              <a href="https://caniuse.com/css-featurequeries" target="_blank">
-                Can I Use - CSS Feature Queries
-              </a>
-            </p>
-
-            <p class="card-text">
-              Fecha de consulta: 6 de octubre de 2026.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- Reflexión -->
-        <h2 class="mt-4">Reflexión</h2>
-
-        <p>
-          Si un cliente me encargara una página web, primero la probaría en
-          Chrome y Firefox porque utilizan motores diferentes. También la
-          probaría en un dispositivo móvil para comprobar que el diseño se
-          adapta correctamente. Después comprobaría otros navegadores como
-          Safari y Edge para asegurar que la página funciona correctamente
-          para el mayor número posible de usuarios.
-        </p>
-
-      </div>
-
     </div>
+    <div>
+    <div class="container my-5">
+    <h3 class="mb-3">Compatibilidad</h3>    
 
-  </div>
+   
+    <!-- Tarjeta de Bootstrap -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark fw-bold">
+            Incompatibilidad detectada: CSS Subgrid
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Grid Subgrids en CSS</h5>
+            <p class="card-text">
+                La propiedad <code>subgrid</code> permite que un elemento anidado comparta las líneas de la cuadrícula de su padre. Aunque hoy en día está muy extendida, las versiones más antiguas de algunos navegadores o ciertos entornos específicos presentan limitaciones de soporte parcial o requieren prefijos especiales.
+            </p>
+            <p class="card-text">
+                <small class="text-muted"><strong>Fecha de consulta:</strong> 1 de octubre de 2026</small>
+            </p>
+            <a href="https://caniuse.com/css-subgrid" target="_blank" class="btn btn-outline-primary btn-sm">
+                Ver en Can I use
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container my-5">
+    <h3 class="mb-3">Reflexión Profesional</h3>
+    <p>Si un cliente me pidiera hacer una página web, 
+        primero la probaría en Chrome porque es uno de los navegadores más utilizados 
+        y tiene un buen soporte para las nuevas tecnologías web. 
+        Aun así, también la probaría en otros navegadores como Firefox y Safari 
+        para asegurarme de que la página funciona correctamente para todos los usuarios.</p>
+   
+</div>
 
-
-  <!-- JS de Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- JS de Bootstrap (navbar que se pliega, modales, dropdowns...). Al final del body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
+        
