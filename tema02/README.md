@@ -15,7 +15,7 @@ README.md:Es este archivo, donde explico de qué trata la práctica.
 
 Navegadores
 
-En la tabla he puesto:
+En la tabla he puesto los 5 navegadores:
 
 Chrome
 Edge
