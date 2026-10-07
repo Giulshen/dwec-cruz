@@ -49,6 +49,6 @@ Compatibilidad
 He tenido en cuenta que una página web puede verse en diferentes navegadores y dispositivos. 
 Por eso es importante probarla en varios navegadores para comprobar que funciona correctamente.
 
-Autor
+Autor:
 
 Giulshen Hueso Cruz
