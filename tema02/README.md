@@ -69,10 +69,10 @@ Capturas de pantalla
 
 ![Consola con los tres botones](capturas/Captura2y3.png)
 
-4. UserAgent en Chrome
+4. UserAgent en Firefox
 
-![UserAgent en Chrome](capturas/Captura4.png)
+![UserAgent en Firefox](capturas/Captura4.png)
 
-5. UserAgent en Firefox
+5. UserAgent en Chrome
 
-![UserAgent en Firefox](capturas/Captura5.png)
+![UserAgent en Chromr](capturas/Captura5.png)
