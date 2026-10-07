@@ -52,3 +52,27 @@ Por eso es importante probarla en varios navegadores para comprobar que funciona
 Autor:
 
 Giulshen Hueso Cruz
+
+
+
+Capturas de pantalla
+
+1. Página principal en ordenador
+
+![Página principal en ordenador](capturas/Captura1.png)
+
+2. Página de interacción en modo móvil
+
+![Página de interacción en modo móvil](capturas/Captura2y3.png)
+
+3. Consola con los tres botones
+
+![Consola con los tres botones](capturas/Captura2y3.png)
+
+4. UserAgent en Chrome
+
+![UserAgent en Chrome](capturas/Captura4.png)
+
+5. UserAgent en Firefox
+
+![UserAgent en Firefox](capturas/Captura5.png)
