@@ -92,8 +92,8 @@ function ejercicio3() {
   console.log('"5" - 2 →', "5" - 2);   // espero 3
   console.log('"5" + 2 →', "5" + 2);   // espero "52"
   console.log("true + 1 →", true + 1);   // espero 2
-  console.log('"3" + 4 + 5 →', "3" + 4 + 5);   // espero "345", mía
-  console.log('4 + 5 + "3" →', 4 + 5 + "3");   // espero "93", mía
+  console.log('"3" + 4 + 5 →', "3" + 4 + 5);   // espero "345"
+  console.log('4 + 5 + "3" →', 4 + 5 + "3");   // espero "93"
   console.log('"hola" - 1 →', "hola" - 1);   // espero NaN
 
   // Comparaciones con == y con ===
