@@ -2,7 +2,7 @@
 
 **Autor:** Giulshen Hueso Cruz · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
 
-Esta carpeta contiene una página con cuatro ejercicios de JavaScript sobre variables, tipos y conversiones, maquetada con Bootstrap. Para verla, abro la carpeta en VS Code, pulso **Go Live**, abro la consola con F12 y pulso «Ejecutar» en cada ejercicio. Cada card enseña el código, una tabla con lo que esperaba y lo que salió de verdad, y los resultados aparecen en la consola.
+Esta carpeta contiene una página con cuatro ejercicios de JavaScript sobre variables, tipos y conversiones, maquetada con Bootstrap. Para verla, abro la carpeta en VS Code, pulso **Go Live**, abro la consola con F12 y pulso "Ejecutar" en cada ejercicio. Cada card enseña el código, una tabla con lo que esperaba y lo que salió de verdad, y los resultados aparecen en la consola.
 
 ## Capturas
 
@@ -51,4 +51,4 @@ Lo más intuitivo fueron las conversiones a boolean: `Boolean(0)` y `Boolean("")
 
 ## Uso de IA
 
-He usado Claude (Anthropic) para preparar un primer borrador del código de `app.js`, de las tablas y de este README a partir de la plantilla del profesor. Después ejecuté cada ejercicio, comprobé en la consola que los resultados coincidían con las tablas, y estudié cada línea para poder explicarla en la defensa.
+He usado Chatgp para ivestigar de cosas de  JS y Claude para preparar un primer borrador del código de `app.js`, de las tablas y de este README a partir de la plantilla del profesor. Después ejecuté cada ejercicio, comprobé en la consola que los resultados coincidían con las tablas, y he estudiado cada línea para poder explicarla en la defensa.
