@@ -16,4 +16,10 @@ function verNavegador() {
     // Funcion 3: Nos muestra el nombre del navegador en la consola.
     console.log("Estás utilizando el navegador: " + navigator.userAgent);
     alert("Estás utilizando el navegador: " + navigator.userAgent);
+
+}
+//Funcion 4: Que nos muestre una despedida.
+function DespedidaNavegador() {
+    console.log("Adiós");
+
 }

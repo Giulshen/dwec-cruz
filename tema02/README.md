@@ -76,3 +76,4 @@ Capturas de pantalla
 5. UserAgent en Chrome
 
 ![UserAgent en Chromr](capturas/Captura5.png)
+

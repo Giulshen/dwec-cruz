@@ -2,12 +2,13 @@
 <!-- Le dice al navegador que esto es una página HTML5 -->
 <html lang="es">
 <!-- lang="es": la página está escrita en español -->
+
 <head>
   <!-- UTF-8: para que se vean bien las tildes y la ñ -->
   <meta charset="UTF-8">
-  <!-- viewport: hace que la página se adapte al ancho del móvil -->
+  <!-- viewport: para adaptar el ancho del móvil -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Texto que sale en la pestaña del navegador -->
+  <!-- Texto que nos sale en la pestaña del navegador -->
   <title>Interacción</title>
 
   <!-- CSS de Bootstrap: da estilo a la barra, las tarjetas y los botones -->
@@ -15,6 +16,7 @@
   <!-- Iconos de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- Navbar: la barra de navegación de arriba.
@@ -60,14 +62,15 @@
     <p class="text-muted">Esta página tiene los ejemplos de interacción con JavaScript.
       Hay que darle a los botones para ver cómo responden.</p>
 
-    <!-- row: fila de la rejilla de Bootstrap (12 columnas) -->
+    <!-- row: filade Bootstrap de las olumnas -->
     <div class="row">
       <!-- col-md-6: en pantallas medianas o grandes ocupa 6 de las 12 columnas, es decir, la mitad -->
       <div class="col-md-6">
         <!-- card: tarjeta con borde. shadow-sm: sombra suave. p-4: relleno interior -->
         <div class="card shadow-sm p-4">
           <h4 class="card-title h5 mb-3">Panel de Acciones</h4>
-          <p class="card-text text-muted mb-4">Haz clic en los botones para disparar las diferentes funciones programadas en el archivo externo de Javascript.</p>
+          <p class="card-text text-muted mb-4">Haz clic en los botones para disparar las diferentes funciones
+            programadas en el archivo externo de Javascript.</p>
 
           <!-- d-grid: apila los botones uno debajo de otro a todo el ancho. gap-3: separación entre ellos -->
           <div class="d-grid gap-3">
@@ -79,6 +82,9 @@
             <button onclick="simularError()" class="btn btn-danger">2.Simular error</button>
             <!-- Botón 3: Ver el navegador. Ejecuta verNavegador() de js/app.js. btn-success: botón verde -->
             <button onclick="verNavegador()" class="btn btn-success">3.¿Qué navegador soy?</button>
+            <!-- Botón 4: Despedirse. Al pulsarlo se ejecuta la función DespedidaNavegador() de js/app.js.
+                 btn btn-primary: botón azul -->
+            <button onclick="DespedidaNavegador()" class="btn btn-primary">4. Despedida</button>
 
           </div>
         </div>
@@ -93,4 +99,5 @@
   <!-- JS de Bootstrap: hace funcionar el menú que se pliega. Va al final del body -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
