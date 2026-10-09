@@ -106,3 +106,34 @@ function ejercicio3() {
   console.log("null == undefined →", null == undefined);     // espero true
   console.log("null === undefined →", null === undefined);   // espero false
 }
+
+function ejercicio4() {
+  // Muestro en la consola el nombre del ejercicio
+  console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
+
+  // Guardo mis datos en constantes porque no necesito cambiarlos
+  const nombre = "Giulshen Hueso Cruz";
+  const ciclo = "Desarrollo de Aplicaciones Web";
+  const curso = "2º curso";
+  const aficion = "la fotografía";
+
+  // Uso let porque las horas estudiadas van a cambiar
+  let horasEstudiadas = 5;
+
+  // Sumo tres horas a las cinco que tenía inicialmente
+  horasEstudiadas += 3;
+
+  // Creo una frase usando backticks y ${} para incluir las variables
+  const ficha = `Soy ${nombre}, estudio ${ciclo} en ${curso} y mi afición es ${aficion}. Esta semana he estudiado ${horasEstudiadas} horas.`;
+
+  // Muestro la ficha en una ventana emergente y también en la consola
+  alert(ficha);
+  console.log(ficha);
+
+  // Creo la misma frase utilizando el operador + para unir los textos
+  const fichaConMas = "Soy " + nombre + ", estudio " + ciclo + " en " + curso + " y mi afición es " + aficion + ". Esta semana he estudiado " + horasEstudiadas + " horas.";
+  console.log(fichaConMas);
+
+  // Comparo las dos frases para comprobar si son exactamente iguales
+  console.log("¿Son iguales las dos fichas? →", ficha === fichaConMas);
+}
