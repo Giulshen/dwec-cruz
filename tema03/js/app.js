@@ -88,4 +88,21 @@ function ejercicio2() {
 function ejercicio3() {
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
-  // "5" - 2 → el operador//
+  // Expresiones que mezclan tipos
+  console.log('"5" - 2 →', "5" - 2);   // espero 3
+  console.log('"5" + 2 →', "5" + 2);   // espero "52"
+  console.log("true + 1 →", true + 1);   // espero 2
+  console.log('"3" + 4 + 5 →', "3" + 4 + 5);   // espero "345", mía
+  console.log('4 + 5 + "3" →', 4 + 5 + "3");   // espero "93", mía
+  console.log('"hola" - 1 →', "hola" - 1);   // espero NaN
+
+  // Comparaciones con == y con ===
+  console.log('5 == "5" →', 5 == "5");     // espero true
+  console.log('5 === "5" →', 5 === "5");   // espero false
+
+  console.log("0 == false →", 0 == false);     // espero true
+  console.log("0 === false →", 0 === false);   // espero false
+
+  console.log("null == undefined →", null == undefined);     // espero true
+  console.log("null === undefined →", null === undefined);   // espero false
+}

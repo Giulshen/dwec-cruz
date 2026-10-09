@@ -1,32 +1,43 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Indica que se utilizan caracteres del español, como las tildes y la ñ -->
   <meta charset="UTF-8">
+
+  <!-- Hace que la página se adapte al tamaño de la pantalla, tanto en ordenador como en móvil -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Título que aparece en la pestaña del navegador -->
   <title>Variables, tipos y conversiones · Giulshen Hueso Cruz</title>
 
-  <!-- CSS de Bootstrap -->
+  <!-- CSS de Bootstrap para dar estilo a la página -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Iconos de Bootstrap -->
+
+  <!-- Iconos de Bootstrap para utilizar dibujos pequeños en los botones y la cabecera -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- NAVBAR con mi nombre -->
+  <!-- Barra superior con mi nombre y el nombre de la tarea -->
   <nav class="navbar bg-primary" data-bs-theme="dark">
     <div class="container">
-      <span class="navbar-brand"><i class="bi bi-person-circle"></i> Giulshen Hueso Cruz</span>
+      <span class="navbar-brand">
+        <i class="bi bi-person-circle"></i> Giulshen Hueso Cruz
+      </span>
       <span class="navbar-text">Tarea 3 · DWEC</span>
     </div>
   </nav>
 
-  <!-- CABECERA -->
+  <!-- Cabecera donde se presenta el tema y se explica cómo ejecutar los ejercicios -->
   <header class="bg-body-tertiary border-bottom py-4 mb-4">
     <div class="container">
       <h1 class="h2 mb-1">Variables, tipos y conversiones</h1>
+
       <p class="lead mb-2 text-body-secondary">
         Cuaderno de laboratorio: para cada ejercicio, el código, lo que esperaba y lo que salió de verdad.
       </p>
+
       <p class="mb-0 small">
         Abre la consola con <kbd>F12</kbd> y pulsa «Ejecutar» en cada ejercicio.
         <span class="badge text-bg-danger">Fallé</span> marca las predicciones en las que me equivoqué.
@@ -34,11 +45,13 @@
     </div>
   </header>
 
+  <!-- Contenido principal donde están los cuatro ejercicios -->
   <main class="container mb-5">
 
-    <!-- EJERCICIO 1 · Variables y typeof-->
+    <!-- EJERCICIO 1: variables y comprobación de sus tipos con typeof -->
     <section class="card mb-4 shadow-sm">
 
+      <!-- Título del primer ejercicio -->
       <div class="card-header d-flex align-items-center gap-2">
         <span class="badge text-bg-primary">Ejercicio 1</span>
         <h2 class="h5 mb-0">Variables y typeof</h2>
@@ -46,37 +59,52 @@
 
       <div class="card-body">
 
+        <!-- Muestra el código JavaScript que se ejecuta al pulsar el botón -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
+  // Muestro en la consola el nombre del ejercicio
   console.log("--- Ejercicio 1 · Variables y typeof ---");
 
-  // const para lo que no cambia
-  const edad = 20;   // number
+  // Uso const porque el valor de estas variables no cambia
+  const edad = 20;
+  // Muestro el valor de edad y su tipo de dato
   console.log("edad =", edad, "→", typeof edad);
 
-  const curso = "2º DAW";   // string
+  const curso = "2º DAW";
+  // Las palabras y los textos son de tipo string
   console.log("curso =", curso, "→", typeof curso);
 
-  const estudiaDaw = true;   // boolean
+  const estudiaDaw = true;
+  // true y false son valores de tipo boolean
   console.log("estudiaDaw =", estudiaDaw, "→", typeof estudiaDaw);
 
-  const premio = null;   // null: «no hay valor», puesto a propósito
+  const premio = null;
+  // null significa que no hay ningún valor asignado intencionadamente
   console.log("premio =", premio, "→", typeof premio);
 
-  const numeroGrande = 10n;   // bigint
+  const numeroGrande = 10n;
+  // La n al final indica que es un número de tipo bigint
   console.log("numeroGrande =", numeroGrande, "→", typeof numeroGrande);
 
-  // let porque le daré valor más tarde
-  let horasEstudiadas;   // undefined: todavía no tiene valor
+  // Uso let porque después voy a darle un valor a esta variable
+  let horasEstudiadas;
+  // Al no tener valor, su tipo es undefined
   console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
 
+  // Le asigno un valor y compruebo cómo cambia su tipo
   horasEstudiadas = 6;
   console.log("horasEstudiadas =", horasEstudiadas, "→", typeof horasEstudiadas);
 }</code></pre>
 
+        <!-- Tabla donde comparo lo que esperaba con el resultado real -->
         <div class="table-responsive">
-            <table class="table table-sm table-striped align-middle mb-2">
+          <table class="table table-sm table-striped align-middle mb-2">
             <thead class="table-primary">
-              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+              <tr>
+                <th scope="col">Variable</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Espero</th>
+                <th scope="col">Sale</th>
+              </tr>
             </thead>
             <tbody>
               <tr><th scope="row">edad</th><td><code>20</code></td><td><code>number</code></td><td><code>number</code></td></tr>
@@ -90,9 +118,14 @@
           </table>
         </div>
 
-        <p class="small mb-0"><strong>El caso de null:</strong> typeof null devuelve "object" aunque null no es un objeto: es un fallo histórico de JavaScript que se ha mantenido. Para mí null significa «aquí no hay nada, y lo he puesto a propósito».</p>
+        <!-- Explicación de una particularidad de JavaScript con null -->
+        <p class="small mb-0">
+          <strong>El caso de null:</strong>
+          typeof null devuelve "object" aunque null no es un objeto: es un fallo histórico de JavaScript que se ha mantenido. Para mí null significa «aquí no hay nada, y lo he puesto a propósito».
+        </p>
       </div>
 
+      <!-- Botón que ejecuta la función ejercicio1 y aviso de dónde ver los resultados -->
       <div class="card-footer">
         <button type="button" class="btn btn-primary" onclick="ejercicio1()">
           <i class="bi bi-play-fill"></i> Ejecutar ejercicio 1
@@ -101,9 +134,10 @@
       </div>
     </section>
 
-    <!--EJERCICIO 2 · Conversiones explícitas -->
+    <!-- EJERCICIO 2: conversiones de valores a otros tipos de datos -->
     <section class="card mb-4 shadow-sm">
 
+      <!-- Título del segundo ejercicio -->
       <div class="card-header d-flex align-items-center gap-2">
         <span class="badge text-bg-primary">Ejercicio 2</span>
         <h2 class="h5 mb-0">Conversiones explícitas</h2>
@@ -111,44 +145,61 @@
 
       <div class="card-body">
 
+        <!-- Código para probar las conversiones con String, Number y Boolean -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
+  // Muestro en la consola el nombre del ejercicio
   console.log("--- Ejercicio 2 · Conversiones explícitas ---");
 
-  const a = String(123);   // espero "123", un string
+  // Con String convierto el número 123 en un texto
+  const a = String(123);
   console.log("String(123) →", a, typeof a);
 
-  const b = Number("123");   // espero 123, un number
+  // Con Number convierto el texto "123" en un número
+  const b = Number("123");
   console.log('Number("123") →', b, typeof b);
 
-  const c = Number("12abc");   // espero NaN, porque no es un número entero
+  // Como "12abc" no es un número válido, el resultado es NaN
+  const c = Number("12abc");
   console.log('Number("12abc") →', c, typeof c);
 
-  const d = Number("");   // espero 0, una cadena vacía cuenta como 0
+  // Una cadena vacía se convierte en el número 0
+  const d = Number("");
   console.log('Number("") →', d, typeof d);
 
-  const e = Number(true);   // espero 1
+  // El valor true se convierte en el número 1
+  const e = Number(true);
   console.log("Number(true) →", e, typeof e);
 
-  const f = Boolean(0);   // espero false
+  // El número 0 se convierte en false
+  const f = Boolean(0);
   console.log("Boolean(0) →", f, typeof f);
 
-  const g = Boolean("texto");   // espero true, porque la cadena no está vacía
+  // Un texto que no está vacío se convierte en true
+  const g = Boolean("texto");
   console.log('Boolean("texto") →', g, typeof g);
 
-  const h = Boolean("");   // espero false, porque la cadena está vacía
+  // Una cadena vacía se convierte en false
+  const h = Boolean("");
   console.log('Boolean("") →', h, typeof h);
 
-  const i = String(null);   // espero "null", un string
+  // Con String convierto null en el texto "null"
+  const i = String(null);
   console.log("String(null) →", i, typeof i);
 
-  const j = Number(undefined);   // espero NaN
+  // undefined no se puede convertir en un número válido, por eso sale NaN
+  const j = Number(undefined);
   console.log("Number(undefined) →", j, typeof j);
 }</code></pre>
 
+        <!-- Tabla con las conversiones, las predicciones y los resultados -->
         <div class="table-responsive">
-            <table class="table table-sm table-striped align-middle mb-2">
+          <table class="table table-sm table-striped align-middle mb-2">
             <thead class="table-primary">
-              <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+              <tr>
+                <th scope="col">Conversión</th>
+                <th scope="col">Espero</th>
+                <th scope="col">Sale</th>
+              </tr>
             </thead>
             <tbody>
               <tr><th scope="row">String(123)</th><td><code>"123"</code></td><td><code>"123"</code></td></tr>
@@ -164,10 +215,9 @@
             </tbody>
           </table>
         </div>
-
-        
       </div>
 
+      <!-- Botón para ejecutar las conversiones y comprobar los resultados en la consola -->
       <div class="card-footer">
         <button type="button" class="btn btn-primary" onclick="ejercicio2()">
           <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
@@ -176,9 +226,10 @@
       </div>
     </section>
 
-    <!--EJERCICIO 3 · Coerción y comparaciones-->
+    <!-- EJERCICIO 3: coerción de tipos y diferencias entre == y === -->
     <section class="card mb-4 shadow-sm">
 
+      <!-- Título del tercer ejercicio -->
       <div class="card-header d-flex align-items-center gap-2">
         <span class="badge text-bg-primary">Ejercicio 3</span>
         <h2 class="h5 mb-0">Coerción y comparaciones</h2>
@@ -186,32 +237,47 @@
 
       <div class="card-body">
 
+        <!-- Código para ver cómo JavaScript opera con distintos tipos de datos -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3() {
+  // Muestro en la consola el nombre del ejercicio
   console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
 
-  // Expresiones que mezclan tipos
-  console.log('"5" - 2 →', "5" - 2);   // espero 3
-  console.log('"5" + 2 →', "5" + 2);   // espero "52"
-  console.log("true + 1 →", true + 1);   // espero 2
-  console.log('"3" + 4 + 5 →', "3" + 4 + 5);   // espero "345", mía
-  console.log('4 + 5 + "3" →', 4 + 5 + "3");   // espero "93", mía
-  console.log('"hola" - 1 →', "hola" - 1);   // espero NaN
+  // Pruebo qué pasa al mezclar números, textos y valores booleanos
+  console.log('"5" - 2 →', "5" - 2);   // El texto se convierte en número
+  console.log('"5" + 2 →', "5" + 2);   // El número se junta con el texto
+  console.log("true + 1 →", true + 1);   // true equivale a 1
+  console.log('"3" + 4 + 5 →', "3" + 4 + 5);   // Se van juntando como texto
+  console.log('4 + 5 + "3" →', 4 + 5 + "3");   // Primero suma y después junta
+  console.log('"hola" - 1 →', "hola" - 1);   // No puede restar y devuelve NaN
 
-  // Comparaciones con == y con ===
-  console.log('5 == "5" →', 5 == "5");     // espero true
-  console.log('5 === "5" →', 5 === "5");   // espero false
+  // Con == se comparan los valores permitiendo conversiones de tipo
+  console.log('5 == "5" →', 5 == "5");     // Devuelve true
 
-  console.log("0 == false →", 0 == false);     // espero true
-  console.log("0 === false →", 0 === false);   // espero false
+  // Con === se comparan el valor y el tipo de dato
+  console.log('5 === "5" →', 5 === "5");   // Devuelve false
 
-  console.log("null == undefined →", null == undefined);     // espero true
-  console.log("null === undefined →", null === undefined);   // espero false
+  // El 0 y false se consideran iguales con ==
+  console.log("0 == false →", 0 == false);
+
+  // Con === son distintos porque sus tipos no coinciden
+  console.log("0 === false →", 0 === false);
+
+  // null y undefined son iguales al usar ==
+  console.log("null == undefined →", null == undefined);
+
+  // Con === son diferentes porque son tipos distintos
+  console.log("null === undefined →", null === undefined);
 }</code></pre>
 
+        <!-- Tabla para comparar lo que esperaba con el resultado obtenido -->
         <div class="table-responsive">
-            <table class="table table-sm table-striped align-middle mb-2">
+          <table class="table table-sm table-striped align-middle mb-2">
             <thead class="table-primary">
-              <tr><th scope="col">Expresión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+              <tr>
+                <th scope="col">Expresión</th>
+                <th scope="col">Espero</th>
+                <th scope="col">Sale</th>
+              </tr>
             </thead>
             <tbody>
               <tr><th scope="row">"5" - 2</th><td><code>3</code></td><td><code>3</code></td></tr>
@@ -230,9 +296,14 @@
           </table>
         </div>
 
-        <p class="small mb-0"><strong>Cuándo manda la cadena y cuándo el número:</strong> con + manda la cadena: si uno de los lados es texto, JavaScript junta en vez de sumar (por eso "5" + 2 da "52", y 4 + 5 + "3" da "93", porque primero suma 4 + 5 y después junta). Con -, * o / manda el número: intenta convertir el texto en número y, si no puede, sale NaN. Por eso comparo siempre con ===, que no convierte los tipos y evita sorpresas como 0 == false.</p>
+        <!-- Explico por qué los resultados cambian según el operador utilizado -->
+        <p class="small mb-0">
+          <strong>Cuándo manda la cadena y cuándo el número:</strong>
+          con + manda la cadena: si uno de los lados es texto, JavaScript junta en vez de sumar (por eso "5" + 2 da "52", y 4 + 5 + "3" da "93", porque primero suma 4 + 5 y después junta). Con -, * o / manda el número: intenta convertir el texto en número y, si no puede, sale NaN. Por eso comparo siempre con ===, que no convierte los tipos y evita sorpresas como 0 == false.
+        </p>
       </div>
 
+      <!-- Botón para ejecutar las operaciones y comparaciones del ejercicio -->
       <div class="card-footer">
         <button type="button" class="btn btn-primary" onclick="ejercicio3()">
           <i class="bi bi-play-fill"></i> Ejecutar ejercicio 3
@@ -241,9 +312,10 @@
       </div>
     </section>
 
-    <!--EJERCICIO 4 · Tu ficha con plantillas de cadena-->
+    <!-- EJERCICIO 4: creación de textos mediante plantillas de cadena -->
     <section class="card mb-4 shadow-sm">
 
+      <!-- Título del cuarto ejercicio -->
       <div class="card-header d-flex align-items-center gap-2">
         <span class="badge text-bg-primary">Ejercicio 4</span>
         <h2 class="h5 mb-0">Tu ficha con plantillas de cadena</h2>
@@ -251,36 +323,47 @@
 
       <div class="card-body">
 
+        <!-- Código para crear una ficha personal usando variables y textos -->
         <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
+  // Muestro en la consola el nombre del ejercicio
   console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
 
-  // Mis datos, con const
+  // Guardo mis datos en constantes porque no necesito cambiarlos
   const nombre = "Giulshen Hueso Cruz";
   const ciclo = "Desarrollo de Aplicaciones Web";
   const curso = "2º curso";
   const aficion = "la fotografía";
 
-  // Un dato que cambia, con let
+  // Uso let porque las horas estudiadas van a cambiar
   let horasEstudiadas = 5;
+
+  // Sumo tres horas a las cinco que tenía inicialmente
   horasEstudiadas += 3;
 
-  // La ficha con plantilla de cadena: backticks y ${ }
+  // Creo una frase usando backticks y ${} para incluir las variables
   const ficha = `Soy ${nombre}, estudio ${ciclo} en ${curso} y mi afición es ${aficion}. Esta semana he estudiado ${horasEstudiadas} horas.`;
+
+  // Muestro la ficha en una ventana emergente y también en la consola
   alert(ficha);
   console.log(ficha);
 
-  // La misma ficha concatenando con +
+  // Creo la misma frase utilizando el operador + para unir los textos
   const fichaConMas = "Soy " + nombre + ", estudio " + ciclo + " en " + curso + " y mi afición es " + aficion + ". Esta semana he estudiado " + horasEstudiadas + " horas.";
   console.log(fichaConMas);
 
-  // Comparo las dos con ===: tiene que salir true
+  // Comparo las dos frases para comprobar si son exactamente iguales
   console.log("¿Son iguales las dos fichas? →", ficha === fichaConMas);
 }</code></pre>
 
+        <!-- Tabla con los resultados que espero al ejecutar el ejercicio -->
         <div class="table-responsive">
-            <table class="table table-sm table-striped align-middle mb-2">
+          <table class="table table-sm table-striped align-middle mb-2">
             <thead class="table-primary">
-              <tr><th scope="col">Comprobación</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+              <tr>
+                <th scope="col">Comprobación</th>
+                <th scope="col">Espero</th>
+                <th scope="col">Sale</th>
+              </tr>
             </thead>
             <tbody>
               <tr><th scope="row">alert(ficha)</th><td><code>ventana con mi ficha</code></td><td><code>ventana con mi ficha</code></td></tr>
@@ -289,15 +372,28 @@
           </table>
         </div>
 
-        <p class="small mb-2"><strong>El error de la const.</strong> Escribí esto en la consola del navegador (no en app.js):</p>
+        <!-- Explico el error que aparece cuando intento cambiar una constante -->
+        <p class="small mb-2">
+          <strong>El error de la const.</strong> Escribí esto en la consola del navegador (no en app.js):
+        </p>
+
+        <!-- Ejemplo de código que provoca un error porque intenta cambiar una const -->
         <pre class="bg-dark text-light p-3 rounded small mb-3"><code>const modelo = "A";
 modelo = "B";</code></pre>
+
+        <!-- Mensaje de error que muestra el navegador -->
         <div class="alert alert-danger small mb-2" role="alert">
           <code>Uncaught TypeError: Assignment to constant variable.</code>
         </div>
-        <p class="small mb-0"><strong>Qué significa:</strong> he intentado darle otro valor a una variable declarada con const, y JavaScript no lo permite, porque una const se queda con el valor con el que nace. Si el valor tiene que cambiar, hay que declararla con let.</p>
+
+        <!-- Explicación de por qué no se puede cambiar el valor de una constante -->
+        <p class="small mb-0">
+          <strong>Qué significa:</strong>
+          he intentado darle otro valor a una variable declarada con const, y JavaScript no lo permite, porque una const se queda con el valor con el que nace. Si el valor tiene que cambiar, hay que declararla con let.
+        </p>
       </div>
 
+      <!-- Botón para ejecutar la ficha personal -->
       <div class="card-footer">
         <button type="button" class="btn btn-primary" onclick="ejercicio4()">
           <i class="bi bi-play-fill"></i> Ejecutar ejercicio 4
@@ -308,14 +404,17 @@ modelo = "B";</code></pre>
 
   </main>
 
+  <!-- Pie de página con mi nombre, el módulo y la tarea -->
   <footer class="bg-body-tertiary border-top py-3">
     <div class="container small text-body-secondary">
       Giulshen Hueso Cruz · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
     </div>
   </footer>
 
-  <!-- JS de Bootstrap y, después, mi JavaScript -->
+  <!-- Cargo Bootstrap para que funcionen sus componentes interactivos -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Cargo mi archivo JavaScript, donde están las funciones de los cuatro ejercicios -->
   <script src="js/app.js"></script>
 </body>
 </html>
