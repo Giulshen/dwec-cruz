@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Cambia [Tu nombre] por tu nombre -->
   <title>Calculadora y bucles · Giulshen Hueso Cruz</title>
 
   <!-- CSS de Bootstrap -->
@@ -15,15 +14,6 @@
 
 <body>
 
-  <!--
-    PLANTILLA DE LA TAREA 4
-    · Solo trae lo imprescindible para empezar. La maquetación con Bootstrap es cosa tuya y cuenta en la nota:
-      rejilla (row y col-*) que se adapte al móvil, cards, botones con color, grupos de botones, iconos...
-    · Todo lo que va entre [corchetes] es un hueco: sustitúyelo por lo tuyo.
-    · Tu JavaScript va en js/app.js. El archivo js/ayudas.js NO se toca.
-  -->
-
-  <!-- NAVBAR con tu nombre -->
   <nav class="navbar bg-primary" data-bs-theme="dark">
     <div class="container">
       <span class="navbar-brand"><i class="bi bi-person-circle"></i> Giulshen Hueso Cruz</span>
@@ -41,10 +31,7 @@
 
   <main class="container mb-5">
 
-    <!-- TODO: organiza las cards con la rejilla de Bootstrap: <div class="row"> y dentro <div class="col-12 col-lg-...">.
-               En el móvil, una debajo de otra; en pantalla grande, repartidas en columnas. -->
 
-    <!-- LOS NÚMEROS. No cambies los id: leerNumero("numero1") y leerNumero("numero2") los buscan por su id -->
 
     <div class="row g-4 mb-4">
       <div class="col-12 col-lg-4">
@@ -58,87 +45,89 @@
             <p class="small text-body-secondary mb-0">El numero 1 nos dice cuantas veces se repite el bucle</p>
           </div>
         </section>
+      </div>
 
-        <!-- RESULTADO. Aquí escriben mostrar(), anadirLinea() y anadirBadge(). No cambies el id -->
-        <div class="col-12 col-lg-8">
+      <!-- RESULTADO. Aquí escriben mostrar(), anadirLinea() y anadirBadge(). No cambies el id -->
+      <div class="col-12 col-lg-8">
+        <section class="card h-100">
+          <div class="card-header"><i class="bi bi-display"></i> Resultado</div>
+          <div class="card-body">
+            <div id="salida"></div>
+          </div>
+        </section>
+      </div>
+
+
+      <!--Los ejercicios-->
+      <div class="row g-4">
+
+        <!-- EJERCICIO 1 · Calculadora -->
+        <div class="col-12 col-md-6 col-lg-4">
           <section class="card h-100">
-            <div class="card-header"><i class="bi bi-display"></i> Resultado</div>
-            <div class="card-body">
-              <div id="salida"></div>
+            <div class="card-header">1 · Calculadora</div>
+            <div class="card-body d-grid gap-2">
+              <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
+              <button type="button" class="btn btn-primary" onclick="sumar()"><i class="bi bi-plus-lg"></i>
+                Sumar</button>
+              <button type="button" class="btn btn-primary" onclick="restar()"><i class="bi bi-dash-lg"></i>
+                Restar</button>
+              <button type="button" class="btn btn-primary" onclick="multiplicar()"><i class="bi bi-x-lg"></i>
+                Multiplicar</button>
+              <button type="button" class="btn btn-primary" onclick="dividir()"><i class="bi bi-slash-lg"></i>
+                Dividir</button>
+              <button type="button" class="btn btn-primary" onclick="potencia()"><i class="bi bi-caret-up"></i>
+                Potencia</button>
+              <button type="button" class="btn btn-primary" onclick="modulo()"><i class="bi bi-percent"></i>
+                Módulo</button>
             </div>
           </section>
         </div>
 
-
-        <!--Los ejercicios-->
-        <div class="row g-4">
-
-          <!-- EJERCICIO 1 · Calculadora -->
-          <div class="col-12 col-md-6 col-lg-4">
-            <section class="card h-100">
-              <div class="card-header">1 · Calculadora</div>
-              <div class="card-body d-grid gap-2">
-                <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
-                <button type="button" class="btn btn-primary" onclick="sumar()"><i class="bi bi-plus-lg"></i>
-                  Sumar</button>
-                <button type="button" class="btn btn-primary" onclick="restar()"><i class="bi bi-dash-lg"></i>
-                  Restar</button>
-                <button type="button" class="btn btn-primary" onclick="multiplicar()"><i class="bi bi-x-lg"></i>
-                  Multiplicar</button>
-                <button type="button" class="btn btn-primary" onclick="dividir()"><i class="bi bi-slash-lg"></i>
-                  Dividir</button>
-                <button type="button" class="btn btn-primary" onclick="potencia()"><i class="bi bi-caret-up"></i>
-                  Potencia</button>
-                <button type="button" class="btn btn-primary" onclick="modulo()"><i class="bi bi-percent"></i>
-                  Módulo</button>
-              </div>
-            </section>
-          </div>
-
-          <!-- TODO EJERCICIO 2 · Comparaciones: una card con los botones
+        <!-- TODO EJERCICIO 2 · Comparaciones: una card con los botones
                «¿Cuál es mayor?» → cualEsMayor()     «¿Par o impar?» → parOImpar() -->
-          <div class="col-12 col-md-6 col-lg-4">
-            <section class="card h-100">
-              <div class="card-header">2 · Comparaciones</div>
-              <div class="card-body d-grid gap-2">
-                <button type="button" class="btn btn-info" onclick="cualEsMayor()">¿Cuál es mayor?</button>
-                <button type="button" class="btn btn-info" onclick="parOImpar()">¿Par o impar?</button>
-                <p class="small text-body-secondary mb-0">«¿Par o impar?» solo mira el número 1.</p>
-              </div>
-            </section>
-          </div>
-
-          <!-- TODO EJERCICIOS 3 Y 4 · Bucles: una card con dos grupos de botones (btn-group)
-               Con texto:  for → bucleFor()    while → bucleWhile()    do…while → bucleDoWhile()
-               Con badges: for → badgesFor()   while → badgesWhile()   do…while → badgesDoWhile() -->
-          <div class="col-12 col-lg-4">
-            <section class="card h-100">
-              <div class="card-header">3 y 4 · Bucles</div>
-              <div class="card-body">
-                <p class="mb-1">Con texto</p>
-                <div class="btn-group w-100 mb-3" role="group">
-                  <button type="button" class="btn btn-success" onclick="bucleFor()">for</button>
-                  <button type="button" class="btn btn-success" onclick="bucleWhile()">while</button>
-                  <button type="button" class="btn btn-success" onclick="bucleDoWhile()">do...while</button>
-                </div>
-                <p class="mb-1">Con badges</p>
-                <div class="btn-group w-100" role="group">
-                  <button type="button" class="btn btn-outline-success" onclick="badgesFor()">for</button>
-                  <button type="button" class="btn btn-outline-success" onclick="badgesWhile()">while</button>
-                  <button type="button" class="btn btn-outline-success" onclick="badgesDoWhile()">do...while</button>
-                </div>
-              </div>
-            </section>
-          </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <section class="card h-100">
+            <div class="card-header">2 · Comparaciones</div>
+            <div class="card-body d-grid gap-2">
+              <button type="button" class="btn btn-info" onclick="cualEsMayor()">¿Cuál es mayor?</button>
+              <button type="button" class="btn btn-info" onclick="parOImpar()">¿Par o impar?</button>
+              <p class="small text-body-secondary mb-0">«¿Par o impar?» solo mira el número 1.</p>
+            </div>
+          </section>
         </div>
 
-        //row + col-12 col-lg-4: en móvil cada card ocupa todo el ancho (una debajo de otra), y en pantalla grande se
-        reparten en columnas.
-        //g-4: separa las cards.
-        //h-100: hace que las cards de una misma fila midan lo mismo de alto.
-        //d-grid gap-2: pone los botones uno debajo de otro y a todo el ancho.
-        //btn-group: pega los tres botones de cada bucle en un grupo, como pide la tarea.
-        //btn-primary, btn-info, btn-success: un color por tipo (operaciones, comparaciones, bucles).
+        <!-- TODO EJERCICIOS 3 Y 4 · Bucles: una card con dos grupos de botones (btn-group)
+               Con texto:  for → bucleFor()    while → bucleWhile()    do…while → bucleDoWhile()
+               Con badges: for → badgesFor()   while → badgesWhile()   do…while → badgesDoWhile() -->
+        <div class="col-12 col-lg-4">
+          <section class="card h-100">
+            <div class="card-header">3 y 4 · Bucles</div>
+            <div class="card-body">
+              <p class="mb-1">Con texto</p>
+              <div class="btn-group w-100 mb-3" role="group">
+                <button type="button" class="btn btn-success" onclick="bucleFor()">for</button>
+                <button type="button" class="btn btn-success" onclick="bucleWhile()">while</button>
+                <button type="button" class="btn btn-success" onclick="bucleDoWhile()">do...while</button>
+              </div>
+              <p class="mb-1">Con badges</p>
+              <div class="btn-group w-100" role="group">
+                <button type="button" class="btn btn-outline-success" onclick="badgesFor()">for</button>
+                <button type="button" class="btn btn-outline-success" onclick="badgesWhile()">while</button>
+                <button type="button" class="btn btn-outline-success" onclick="badgesDoWhile()">do...while</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!--row + col-12 col-lg-4: en móvil cada card ocupa todo el ancho (una debajo de otra), y en pantalla grande se
+      reparten en columnas.
+      //g-4: separa las cards.
+      //h-100: hace que las cards de una misma fila midan lo mismo de alto.
+      //d-grid gap-2: pone los botones uno debajo de otro y a todo el ancho.
+      //btn-group: pega los tres botones de cada bucle en un grupo, como pide la tarea.
+      //btn-primary, btn-info, btn-success: un color por tipo (operaciones, comparaciones, bucles).-->
+
   </main>
 
   <footer class="bg-body-tertiary border-top py-3">

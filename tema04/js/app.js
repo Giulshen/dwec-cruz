@@ -152,10 +152,9 @@ function parOImpar() {
 }
 
 
-// ============================================================
 // Ejercicio 3 · Bucles con texto
 // El número 1 dice cuántas veces se repite cada bucle
-// ============================================================
+
 
 function bucleFor() {
   const veces = leerNumero("numero1");
