@@ -8,25 +8,25 @@
 
 <img src="capturas/a-pantallacompleta.png" alt="La página entera con mi nombre en la navbar" width="600">
 
-[Qué se ve: tu nombre en la navbar y cómo has repartido las cards con la rejilla.]
+Aquí se ve toda la página completa con mi nombre arriba, en la parte superior donde está la barra y bueno, lo que me pedía la tarea. HE usado el Boostrap para las cards y los botones y así la página me queda bien ordenada.
 
 ### b) La página en el móvil
 
 <img src="capturas/b-movil.png" alt="La página en el modo móvil de las herramientas de desarrollo" width="300">
 
-[Qué cambia respecto a la pantalla grande.]
+Primero que es más pequeña, evidentemente, Las tarjetas aparecen una debajo de otra para que puedas usar bien la caloculadora desde el móvil.
 
 ### c) El error de dividir entre 0
 
 ![El error de dividir entre 0 con la consola abierta](capturas/c-dividir-cero.png)
 
-[Qué se ve en la página y en la consola.]
+Aquí he dividido 8 entre 0. ME pone en la página un mensaje de que hay un error, porque el segundo número no puede ser 0. Y también hay un aviso en la consola del navegador, para ver que el código funcoina.
 
 ### d) Los tres bucles con el número 0
 
 ![Los tres bucles de texto con el número 0 y la consola abierta](capturas/d-bucles-cero.png)
 
-[Cuántas veces se repite cada bucle y por qué.]
+El for y el while no se repiten porque al ser 0 la condición no se cumple desde el inicio. Pero el do while si se ejecuta una vez antes de comprobar la condición.
 
 ### e) Un bucle con badges
 
