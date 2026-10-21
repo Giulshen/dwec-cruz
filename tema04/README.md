@@ -17,7 +17,7 @@
 
 ### a) La página entera
 
-<img src="capturas/a-pagina.png" alt="La página entera con mi nombre en la navbar" width="600">
+<img src="capturas/a-pantallacompleta.png" alt="La página entera con mi nombre en la navbar" width="600">
 
 [Qué se ve: tu nombre en la navbar y cómo has repartido las cards con la rejilla.]
 
@@ -49,10 +49,9 @@
 
 [De 5 a 8 líneas: ¿en qué se diferencian for, while y do…while y cuándo usarías cada uno? Pon como ejemplo lo que pasó con el 0.]
 
-## Fuentes
-
-- [Título de la página](https://enlace-a-la-fuente)
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+Todas las correciones se han realizado con claude, en concreto porque tenía varios DIV sin cerrar y por lo tanto la página no me salía en horizontal en el navegador, por lo tanto, le saltará la ia, por haber copiado las soluciones de los errores, pero los ejercicios los he realizado yo en visual studio code. 
+No hay enlaces esta vez, ya que no he consultado nada en internet, porque venía todo lo que necesitaba en la plantilla, lo único que he hecho ha sido repasar javascript en una pagina llaada w3shool para comprender mejor el funcionamiento de javascript.
+https://www.w3schools.com/
