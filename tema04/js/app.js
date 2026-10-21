@@ -228,7 +228,6 @@ function bucleDoWhile() {
 // ============================================================
 // Ejercicio 4 · Bucles con badges
 // ============================================================
-
 function badgesFor() {
   const veces = leerNumero("numero1");
   limpiarSalida();
@@ -237,12 +236,17 @@ function badgesFor() {
     mostrar(`Escribe un número entero de ${MAXIMO_REPETICIONES} como máximo.`, "danger");
     console.warn(`Badges for: el número ${veces} no es válido`);
   } else {
-    for (let i = 1; i <= veces; i++) {
-      anadirBadge(i, (i % 2 === 0) ? "primary" : "success");
-    }
-    console.log(`Badges for: total de ${veces} badges`);
-  }
+    let contador = 0;
 
+    for (let i = 1; i <= veces; i++) {
+      anadirBadge(i, i % 2 === 0 ? "primary" : "success");
+      contador++;
+    }
+
+    const palabra = contador === 1 ? "repetición" : "repeticiones";
+    anadirLinea(`Total: ${contador} ${palabra}`);
+    console.log(`Badges for: total de ${contador} ${palabra}`);
+  }
 }
 
 function badgesWhile() {
@@ -253,12 +257,18 @@ function badgesWhile() {
     mostrar(`Escribe un número entero de ${MAXIMO_REPETICIONES} como máximo.`, "danger");
     console.warn(`Badges while: el número ${veces} no es válido`);
   } else {
+    let contador = 0;
     let i = 1;
+
     while (i <= veces) {
-      anadirBadge(i, (i % 2 === 0) ? "primary" : "success");
+      anadirBadge(i, i % 2 === 0 ? "primary" : "success");
+      contador++;
       i++;
     }
-    console.log(`Badges while: total de ${veces} badges`);
+
+    const palabra = contador === 1 ? "repetición" : "repeticiones";
+    anadirLinea(`Total: ${contador} ${palabra}`);
+    console.log(`Badges while: total de ${contador} ${palabra}`);
   }
 }
 
@@ -270,11 +280,17 @@ function badgesDoWhile() {
     mostrar(`Escribe un número entero de ${MAXIMO_REPETICIONES} como máximo.`, "danger");
     console.warn(`Badges do…while: el número ${veces} no es válido`);
   } else {
+    let contador = 0;
     let i = 1;
+
     do {
-      anadirBadge(i, (i % 2 === 0) ? "primary" : "success");
+      anadirBadge(i, i % 2 === 0 ? "primary" : "success");
+      contador++;
       i++;
     } while (i <= veces);
-    console.log(`Badges do…while: total de ${veces} badges`);
+
+    const palabra = contador === 1 ? "repetición" : "repeticiones";
+    anadirLinea(`Total: ${contador} ${palabra}`);
+    console.log(`Badges do…while: total de ${contador} ${palabra}`);
   }
 }
