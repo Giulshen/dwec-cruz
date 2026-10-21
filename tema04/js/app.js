@@ -13,7 +13,7 @@
 
 console.log("app.js cargado");
 
-const MAXIMO_REPETICIONES = 20;   // para que un bucle no llene la página
+const MAXIMO_REPETICIONES = 20;   // para que un bucle no pete la página
 
 
 // ============================================================
