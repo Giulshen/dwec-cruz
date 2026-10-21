@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Cambia [Tu nombre] por tu nombre -->
-  <title>Calculadora y bucles · [Tu nombre]</title>
+  <title>Calculadora y bucles · Giulshen Hueso Cruz</title>
 
   <!-- CSS de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Iconos de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
+
 <body>
 
   <!--
@@ -24,7 +26,7 @@
   <!-- NAVBAR con tu nombre -->
   <nav class="navbar bg-primary" data-bs-theme="dark">
     <div class="container">
-      <span class="navbar-brand"><i class="bi bi-person-circle"></i> [Tu nombre y apellidos]</span>
+      <span class="navbar-brand"><i class="bi bi-person-circle"></i> Giulshen Hueso Cruz</span>
       <span class="navbar-text">Tarea 4 · DWEC</span>
     </div>
   </nav>
@@ -33,7 +35,7 @@
   <header class="bg-body-tertiary border-bottom py-4 mb-4">
     <div class="container">
       <h1 class="h2 mb-1">Calculadora y bucles</h1>
-      <p class="lead mb-0 text-body-secondary">[Una frase tuya sobre lo que hace la página]</p>
+      <p class="lead mb-0 text-body-secondary">Calculadora y bucles</p>
     </div>
   </header>
 
@@ -43,47 +45,105 @@
                En el móvil, una debajo de otra; en pantalla grande, repartidas en columnas. -->
 
     <!-- LOS NÚMEROS. No cambies los id: leerNumero("numero1") y leerNumero("numero2") los buscan por su id -->
-    <section class="card mb-4">
-      <div class="card-header">Los números</div>
-      <div class="card-body">
-        <label for="numero1" class="form-label">Número 1</label>
-        <input type="number" id="numero1" class="form-control mb-3">
-        <label for="numero2" class="form-label">Número 2</label>
-        <input type="number" id="numero2" class="form-control">
-      </div>
-    </section>
 
-    <!-- RESULTADO. Aquí escriben mostrar(), anadirLinea() y anadirBadge(). No cambies el id -->
-    <section class="card mb-4">
-      <div class="card-header">Resultado</div>
-      <div class="card-body">
-        <div id="salida"></div>
-      </div>
-    </section>
+    <div class="row g-4 mb-4">
+      <div class="col-12 col-lg-4">
+        <section class="card h-100">
+          <div class="card-header"><i class="bi bi-123"></i> Los números</div>
+          <div class="card-body">
+            <label for="numero1" class="form-label">Número 1</label>
+            <input type="number" id="numero1" class="form-control mb-3">
+            <label for="numero2" class="form-label">Número 2</label>
+            <input type="number" id="numero2" class="form-control mb-3">
+            <p class="small text-body-secondary mb-0">El numero 1 nos dice cuantas veces se repite el bucle</p>
+          </div>
+        </section>
 
-    <!-- EJERCICIO 1 · Calculadora -->
-    <section class="card mb-4">
-      <div class="card-header">Calculadora</div>
-      <div class="card-body">
-        <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
-        <button type="button" class="btn btn-primary" onclick="sumar()">Sumar</button>
-        <!-- TODO: los botones Restar, Multiplicar, Dividir, Potencia y Módulo:
-                   restar(), multiplicar(), dividir(), potencia() y modulo() -->
-      </div>
-    </section>
+        <!-- RESULTADO. Aquí escriben mostrar(), anadirLinea() y anadirBadge(). No cambies el id -->
+        <div class="col-12 col-lg-8">
+          <section class="card h-100">
+            <div class="card-header"><i class="bi bi-display"></i> Resultado</div>
+            <div class="card-body">
+              <div id="salida"></div>
+            </div>
+          </section>
+        </div>
 
-    <!-- TODO EJERCICIO 2 · Comparaciones: una card con los botones
+
+        <!--Los ejercicios-->
+        <div class="row g-4">
+
+          <!-- EJERCICIO 1 · Calculadora -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <section class="card h-100">
+              <div class="card-header">1 · Calculadora</div>
+              <div class="card-body d-grid gap-2">
+                <!-- Cada botón llama con onclick a su función de js/app.js, como en la tarea 3 -->
+                <button type="button" class="btn btn-primary" onclick="sumar()"><i class="bi bi-plus-lg"></i>
+                  Sumar</button>
+                <button type="button" class="btn btn-primary" onclick="restar()"><i class="bi bi-dash-lg"></i>
+                  Restar</button>
+                <button type="button" class="btn btn-primary" onclick="multiplicar()"><i class="bi bi-x-lg"></i>
+                  Multiplicar</button>
+                <button type="button" class="btn btn-primary" onclick="dividir()"><i class="bi bi-slash-lg"></i>
+                  Dividir</button>
+                <button type="button" class="btn btn-primary" onclick="potencia()"><i class="bi bi-caret-up"></i>
+                  Potencia</button>
+                <button type="button" class="btn btn-primary" onclick="modulo()"><i class="bi bi-percent"></i>
+                  Módulo</button>
+              </div>
+            </section>
+          </div>
+
+          <!-- TODO EJERCICIO 2 · Comparaciones: una card con los botones
                «¿Cuál es mayor?» → cualEsMayor()     «¿Par o impar?» → parOImpar() -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <section class="card h-100">
+              <div class="card-header">2 · Comparaciones</div>
+              <div class="card-body d-grid gap-2">
+                <button type="button" class="btn btn-info" onclick="cualEsMayor()">¿Cuál es mayor?</button>
+                <button type="button" class="btn btn-info" onclick="parOImpar()">¿Par o impar?</button>
+                <p class="small text-body-secondary mb-0">«¿Par o impar?» solo mira el número 1.</p>
+              </div>
+            </section>
+          </div>
 
-    <!-- TODO EJERCICIOS 3 Y 4 · Bucles: una card con dos grupos de botones (btn-group)
+          <!-- TODO EJERCICIOS 3 Y 4 · Bucles: una card con dos grupos de botones (btn-group)
                Con texto:  for → bucleFor()    while → bucleWhile()    do…while → bucleDoWhile()
                Con badges: for → badgesFor()   while → badgesWhile()   do…while → badgesDoWhile() -->
+          <div class="col-12 col-lg-4">
+            <section class="card h-100">
+              <div class="card-header">3 y 4 · Bucles</div>
+              <div class="card-body">
+                <p class="mb-1">Con texto</p>
+                <div class="btn-group w-100 mb-3" role="group">
+                  <button type="button" class="btn btn-success" onclick="bucleFor()">for</button>
+                  <button type="button" class="btn btn-success" onclick="bucleWhile()">while</button>
+                  <button type="button" class="btn btn-success" onclick="bucleDoWhile()">do...while</button>
+                </div>
+                <p class="mb-1">Con badges</p>
+                <div class="btn-group w-100" role="group">
+                  <button type="button" class="btn btn-outline-success" onclick="badgesFor()">for</button>
+                  <button type="button" class="btn btn-outline-success" onclick="badgesWhile()">while</button>
+                  <button type="button" class="btn btn-outline-success" onclick="badgesDoWhile()">do...while</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
 
+        //row + col-12 col-lg-4: en móvil cada card ocupa todo el ancho (una debajo de otra), y en pantalla grande se
+        reparten en columnas.
+        //g-4: separa las cards.
+        //h-100: hace que las cards de una misma fila midan lo mismo de alto.
+        //d-grid gap-2: pone los botones uno debajo de otro y a todo el ancho.
+        //btn-group: pega los tres botones de cada bucle en un grupo, como pide la tarea.
+        //btn-primary, btn-info, btn-success: un color por tipo (operaciones, comparaciones, bucles).
   </main>
 
   <footer class="bg-body-tertiary border-top py-3">
     <div class="container small text-body-secondary">
-      [Tu nombre y apellidos] · DWEC 26/27 · Tarea 4 · Las capturas, la reflexión y las fuentes están en el README.
+      Giulshen Hueso Cruz · DWEC 26/27 · Tarea 4 · Las capturas, la reflexión y las fuentes están en el README.
     </div>
   </footer>
 
@@ -92,4 +152,5 @@
   <script src="js/ayudas.js"></script>
   <script src="js/app.js"></script>
 </body>
+
 </html>
