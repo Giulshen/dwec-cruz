@@ -1,5 +1,5 @@
 /*
-  Tarea 4 · DWEC · [Tu nombre y apellidos]
+  Tarea 4 · DWEC · Giulshen Hueso Cruz · 26/27
   Calculadora y bucles.
 
   Cómo usar esta plantilla:
@@ -36,23 +36,66 @@ function sumar() {
 }
 
 function restar() {
-  // TODO: como sumar(), con el operador -
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Restar: falta algún número");
+  } else {
+    const resultado = n1 - n2;
+    mostrar(`${n1} - ${n2} = ${resultado}`);
+    console.log(`Restar: ${n1} - ${n2} = ${resultado}`);
+  }
 }
 
 function multiplicar() {
-  // TODO: como sumar(), con el operador *
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Multiplicar: falta algún número");
+  } else {
+    const resultado = n1 * n2;
+    mostrar(`${n1} * ${n2} = ${resultado}`);
+    console.log(`Multiplicar: ${n1} * ${n2} = ${resultado}`);
+  }
 }
 
 function dividir() {
-  // TODO: como sumar(), con el operador /
-  // TODO: si el número 2 es 0, muestra un error en rojo. Ojo: en JavaScript, 5 / 0 no da error, da Infinity.
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Dividir: falta algún número");
+  } else if (n2 === 0) {
+    mostrar("El segundo número no puede ser cero.", "danger");
+    console.warn("Dividir: el segundo número es cero");
+  } else {
+    const resultado = n1 / n2;
+    mostrar(`${n1} / ${n2} = ${resultado}`);
+    console.log(`Dividir: ${n1} / ${n2} = ${resultado}`);
+  }
 }
 
 function potencia() {
-  // TODO: como sumar(), con el operador **
+  const n1 = leerNumero("numero1");
+  const n2 = leerNumero("numero2");
+
+  if (Number.isNaN(n1) || Number.isNaN(n2)) {
+    mostrar("Escribe los dos números antes de operar.", "danger");
+    console.warn("Potencia: falta algún número");
+  } else {
+    const resultado = n1 ** n2;
+    mostrar(`${n1} ** ${n2} = ${resultado}`);
+    console.log(`Potencia: ${n1} ** ${n2} = ${resultado}`);
+  }
 }
 
 function modulo() {
+  
   // TODO: el resto de la división, con el operador %
   // TODO: si el número 2 es 0, muestra un error en rojo (5 % 0 da NaN).
 }
