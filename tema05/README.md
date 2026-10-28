@@ -46,7 +46,7 @@ La lista tiene tres tareas, una de ellas marcada, antes de pulsar «Borrar compl
 
 <img src="capturas/f-ej6-movil.png" alt="Los datos de la ventana en el modo móvil" width="300">
 
-En el modo móvil sale el punto de corte **xs** (menos de 576 px). En mi ordenador sale **[lg / xl / xxl: pon el que te salga a ti]**, porque la ventana es mucho más ancha.
+En el modo móvil sale el punto de corte **xs** (menos de 576 px). En mi ordenador sale diferente, porque la ventana es mucho más ancha.
 
 ## Reflexión
 
