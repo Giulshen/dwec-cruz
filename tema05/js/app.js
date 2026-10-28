@@ -50,9 +50,19 @@ function anadirParrafo() {
 }
 
 function eliminarUltimo() {
-  // TODO: busca el último párrafo de #contenido (lastElementChild).
-  // TODO: si es null (ya no queda ninguno), muestra el aviso #aviso2 quitándole la clase "d-none".
-  //       Si no, bórralo con remove().
+  const contenido = document.getElementById("contenido");
+  const aviso = document.getElementById("aviso2");
+  const ultimo = contenido.lastElementChild;
+
+  if (ultimo === null) {
+    //si no queda ningún párrafo, muestra el aviso
+    aviso.classsList.remove("d.none");
+  } else {
+    ultimo.remove();
+    avisoclassList.add("d-none");
+    console.log("Ejercicio 2: eliminado el último párrafo");
+
+  }
 }
 
 
