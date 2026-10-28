@@ -17,29 +17,36 @@ console.log("app.js cargado");
 
 // ============================================================
 // Ejercicio 1 · Selectores y modificación
-// Un selector distinto para cada párrafo
 // ============================================================
 
 function aplicarCambios() {
   // El modelo: el primer párrafo, por su id
   const primero = document.getElementById("primero");
   primero.textContent = "Texto modificado por JavaScript";
+  const segundo = document.querySelector(".segundo");
+  segundo.classList.add("bg-warning-subtle");
+  const tercero = document.querySelectorAll("#contenido p")[2];
 
-  // TODO: el segundo párrafo, con querySelector y su clase (.segundo): resáltalo con la clase "bg-warning-subtle".
-  // TODO: el tercero, con querySelectorAll("#contenido p") y su posición en la lista: ponlo en rojo con "text-danger".
-  // TODO: un console.log() que diga que se han aplicado los cambios.
+  tercero.classList.add("text-danger");
+  console.log("Se han aplicado los cambios a los párrafos.");
+
 }
-
 
 // ============================================================
 // Ejercicio 2 · Crear y eliminar nodos
 // ============================================================
 
 function anadirParrafo() {
-  // TODO: crea un <p> con document.createElement().
-  // TODO: dale el texto «Párrafo nuevo N», donde N es el número de párrafos que habrá en #contenido
-  //       (pista: document.querySelector("#contenido").children.length).
-  // TODO: cuélgalo al final de #contenido con append().
+  const contenido = document.getElementById("contenido");
+  const aviso = document.getElementById("aviso2");
+
+  const numero = contenido.querySelectorAll("p").length + 1;
+  const nuevo = document.createElement("p");
+  nuevo.textContent = "Párrafo nuevo" + numero;
+  contenido.append(nuevo);
+
+  console.log("Ejercicio 2: añadido el párrafo número" + numero);
+
 }
 
 function eliminarUltimo() {
