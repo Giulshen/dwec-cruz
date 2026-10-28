@@ -65,7 +65,6 @@ function eliminarUltimo() {
   }
 }
 
-
 // ============================================================
 // Ejercicio 3 · Resaltar al pasar el ratón
 // ============================================================
@@ -80,10 +79,13 @@ function activarResaltado() {
       parrafo.classList.add("bg-body-secondary");
     });
 
-    // TODO: lo mismo con "mouseleave" (cuando el ratón sale) para quitar la clase.
+    parrafo.addEventListener("mouseleave", function () {
+      parrafo.classList.remove("bg-body-secondary");
+    });
+
+    console.log("Ejercicio 3: resaltado activado en "parrafos.length + "párrafos");
   }
 
-  // TODO: un console.log() que diga en cuántos párrafos se ha activado (parrafos.length).
 }
 
 
