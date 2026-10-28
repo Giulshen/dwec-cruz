@@ -2,15 +2,7 @@
 
 **Autor:** Giulshen Hueso Cruz · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
 
-> **Plantilla de la tarea 5.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema05`.
-> 2. `index.html` ya está maquetado: es la página que vas a manipular. No cambies los `id` ni las clases que usa el JavaScript.
-> 3. `js/app.js` trae una función por botón con `TODO`, y modelos en los ejercicios 1, 3 y 6.
-> 4. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 5. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
-
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live** y probar los botones con la consola abierta (F12).]
+Esta carpeta contiene una página con Bootstrap 5 (`index.html`) y su JavaScript (`js/app.js`), donde cada botón ejecuta una función que manipula el DOM: seleccionar y modificar elementos, crear y borrar nodos, eventos de ratón, `textContent` frente a `innerHTML`, una lista de tareas y los datos de la ventana (BOM). Para probarla, abro la carpeta en VS Code, pulso **Go Live** y uso los botones con la consola abierta (F12), donde cada función escribe un mensaje.
 
 ## Capturas
 
@@ -18,46 +10,54 @@
 
 <img src="capturas/a-pagina.png" alt="La página recién cargada con mi nombre en la navbar" width="600">
 
-[Qué se ve: tu nombre y los tres párrafos de partida.]
+Se ve mi nombre y los tres párrafos de partida.
 
 ### b) Ejercicios 1 y 2
 
 <img src="capturas/b-ej1-ej2.png" alt="Los párrafos después de aplicar los cambios y añadir dos párrafos" width="600">
 
-[Qué ha cambiado en cada párrafo y qué selector has usado para cada uno.]
+Con «Aplicar cambios» (ejercicio 1):
+
+- El primer párrafo cambia su texto a «Texto modificado por JavaScript». Lo selecciono con `getElementById("primero")` y uso `textContent`.
+- El segundo párrafo se resalta con la clase `bg-warning-subtle`. Lo selecciono con `querySelector(".segundo")`.
+- El tercer párrafo se pone en rojo con `text-danger`. Lo selecciono con `querySelectorAll("#contenido p")[2]`.
+
+Con «Añadir párrafo» (ejercicio 2) creo cada párrafo nuevo con `createElement("p")` y lo inserto con `append()`. Al pulsarlo dos veces aparecen «Párrafo nuevo4» y «Párrafo nuevo5» al final del contenido.
 
 ### c) Ejercicio 3: resaltado al pasar el ratón
 
 ![Un párrafo resaltado con el ratón encima](capturas/c-ej3-resaltado.png)
 
-[Qué párrafo está resaltado y qué pasa con los párrafos que añades después.]
+El párrafo que tiene el ratón encima se resalta con `bg-body-secondary` (evento `mouseenter`) y vuelve a la normalidad al salir (evento `mouseleave`). Los párrafos que añado después no se resaltan hasta que vuelvo a pulsar «Activar resaltado», porque el evento solo se asigna a los párrafos que existen en ese momento.
 
 ### d) Ejercicio 4: `<b>hola</b>` con innerHTML
 
 <img src="capturas/d-ej4-innerhtml.png" alt="El primer párrafo tras usar innerHTML" width="600">
 
-[Qué salía con «Cambiar texto» y qué sale con innerHTML.]
+Con «Cambiar texto» (`textContent`) el párrafo muestra literalmente `<b>hola</b>`, etiquetas incluidas. Con «Probar con innerHTML» el navegador interpreta la etiqueta y muestra **hola** en negrita.
 
 ### e) Ejercicio 5: la lista de tareas
 
 ![La lista con tres tareas y una marcada](capturas/e-ej5-lista.png)
 
-[Tres tareas, una marcada, antes de pulsar «Borrar completadas».]
+La lista tiene tres tareas, una de ellas marcada, antes de pulsar «Borrar completadas». El contador de la cabecera muestra 3.
 
 ### f) Ejercicio 6: los datos de la ventana en el móvil
 
 <img src="capturas/f-ej6-movil.png" alt="Los datos de la ventana en el modo móvil" width="300">
 
-[Qué punto de corte sale en el móvil y cuál en tu ordenador.]
+En el modo móvil sale el punto de corte **xs** (menos de 576 px). En mi ordenador sale **[lg / xl / xxl: pon el que te salga a ti]**, porque la ventana es mucho más ancha.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué diferencia hay entre textContent e innerHTML y por qué no se debe meter en innerHTML lo que escribe el usuario? Pon como ejemplo lo que pasó con `<b>hola</b>`.]
+`textContent` inserta lo que le pasas como texto plano, así que si escribo `<b>hola</b>` se ve tal cual, con las etiquetas. `innerHTML`, en cambio, interpreta ese texto como HTML, y por eso en la prueba apareció «hola» en negrita. Eso es un problema cuando el texto lo escribe el usuario: si alguien introduce algo como `<img src="x" onerror="...">`, el navegador creará ese elemento y ejecutará el código malicioso (un ataque XSS). Por eso, para mostrar texto que viene del usuario, se usa `textContent`, y `innerHTML` solo se usa con contenido que controlo yo.
 
 ## Fuentes
 
-- [Título de la página](https://enlace-a-la-fuente)
+- [Node.textContent – MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
+- [Element.innerHTML – MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML)
+- [Breakpoints – Bootstrap 5.3](https://getbootstrap.com/docs/5.3/layout/breakpoints/)
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado Claude pra hacer el readme y para coo¡rregir los ejercicios 4, 5 y 6 que tenían algún fallo porque no he sabido hacerlos por mi cuenta del todo ni mirando los auntes, ya que el value.trim no me funcionaba bien. Por último me ha ayudado para poner bien las dimensiones de la ventana de Boostrap.
