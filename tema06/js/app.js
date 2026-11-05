@@ -236,87 +236,201 @@ mostrarProductos();   // la tabla completa nada más cargar
 // ============================================================
 
 const alumno = {
-  nombre: "[Tu nombre]",
+  nombre: "Giulshen",
   notas: []
-  // TODO: método anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
-  //       si es válida, la añade a this.notas con push y devuelve true.
-  // TODO: método media(): si no hay notas devuelve 0; si hay, la suma (con reduce) dividida entre el número de notas.
-  //       Recuerda la coma entre una propiedad y la siguiente.
+
+  añadirNota: function (nota) {
+    if (Number.isNaN(nota) || nota < 0 || nota > 10) {
+      return false;
+    }
+    this.notas.push(nota);
+    return true;
+  },
+
+  media: function () {
+    if (this.notas.length === 0) {
+      return 0;
+    }
+    const suma = this.notas.reduce(function (acumulador, nota) {
+      return acumulador + nota;
+    }, 0);
+    return suma / this.notas.length;
+  }
 };
 
 function mostrarNotas() {
-  // TODO: vacía #notas y pon un badge (<span class="badge">) por nota: verde (text-bg-success) si es de 5 o más,
-  //       rojo (text-bg-danger) si no.
-  // TODO: en #media, «Media de N notas: X» con dos decimales (toFixed(2)), o «Todavía no hay notas.».
+  const listaNotas = document.querySelector("#notas");
+  listaNotas.textContent = "";
+  alumno.notas.forEach(function (nota) {
+    const badge = document.createElement("span");
+    badge.classList.add("badge");
+
+    if (nota >= 5) {
+      badge.classList.add("text-bg-success");
+    } else {
+      badge.classList.add("text-bg-danger");
+    }
+    badge.textContent = nota;
+    listaNotas.append(badge);
+  });
+  console.log("Ejercicio 4 - notas del alumno:", comoTexto(alumno.notas), "media:", alumno.media().toFixed(2));
 }
 
 function anadirNota() {
-  // TODO: si #nota está vacía, muestra un error en #error4 (quítale "d-none").
-  //       Ojo: Number("") vale 0, así que esta comprobación va antes de convertir.
-  // TODO: convierte el valor con Number() y llama a alumno.anadirNota(). Si devuelve false, muestra el error.
-  // TODO: si ha ido bien, oculta el error, vacía la casilla y llama a mostrarNotas().
+  const casilla = document.querySelector("#nota");
+
+  const nota = casilla.value.trim();
+
+  const error = document.querySelector("#error4");
+
+  if (nota === "") {
+    error.textContent = "Escribe una nota antes de añadir.";
+    error.classList.remove("d-none");
+
+    return;
+  }
+  const notaNumero = Number(nota);
+
+  if (!alumno.anadirNota(notaNumero)) {
+    error.textContent = "La nota debe ser un número entre 0 y 10.";
+    error.classList.remove("d-none");
+    return;
+
+  } else {
+    console.log("Ejercicio 4 - Nota añadida:", notaNumero, "notas ahora:", comoTexto(alumno.notas)
+    );
+  }
+  error.classList.add("d-none");
+  casilla.value = "";
+  mostrarNotas();
 }
 
 function borrarNotas() {
-  // TODO: deja alumno.notas vacío y vuelve a pintar.
+  alumno.notas = [];
+  console.log("Ejercicio 4: notas borradas");
+  mostrarNotas();
+
+  mostrarNotas();
+
+
+  // ============================================================
+  // Ejercicio 5 · map, filter y reduce
+  // ============================================================
+
+  const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  function verDobles() {
+    const dobles = numeros.map(function (n) {
+      return n * 2;
+    });
+    escribirLineas("#salida5", ["map → " + comoTexto(dobles), "numeros → " + comoTexto(numeros)]);
+    console.log("Ejercicio 5: dobles", comoTexto(dobles));
+  }
+
+  function verPares() {
+    const pares = numeros.filter(function (n) {
+      return n % 2 === 0;
+    });
+    escribirLineas("#salida5", ["filter → " + comoTexto(pares), "numeros → " + comoTexto(numeros)]);
+    console.log("Ejercicio 5: pares", comoTexto(pares));
+  }
+
+  function verSuma() {
+    const suma = numeros.reduce(function (acumulado, n) {
+      return acumulado + n;
+    }, 0);
+    escribirLineas("#salida5", ["reduce → " + suma, "numeros → " + comoTexto(numeros)]);
+    console.log("Ejercicio 5: suma", suma);
+  }
+
+  function verCadena() {
+    const pares = numeros.filter(function (n) {
+      return n % 2 === 0;
+    });
+    const dobles = pares.map(function (n) {
+      return n * 2;
+    });
+    const suma = dobles.reduce(function (acumulado, n) {
+      return acumulado + n;
+    }, 0);
+
+    escribirLineas("#salida5", [
+      "1. filter → " + comoTexto(pares),
+      "2. map → " + comoTexto(dobles),
+      "3. reduce → " + suma
+    ]);
+    console.log("Ejercicio 5: cadena", suma);   // tiene que salir 60
+  }
+
+  // ============================================================
+  // Ejercicio 6 · Ciudades
+  // ============================================================
+
+  const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
+  let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
+
+  function mostrarCiudades() {
+    const contenidor = document.querySelector("#ciudades");
+    contenidor.textContent = "";
+    ciudades.forEach(function (ciudad) {
+      const badge = document.createElement("span");
+      badge.classList.add("badge", "text-bg-primary", "m-1");
+      badge.textContent = ciudad;
+      contenidor.append(badge);
+    });
+    console.log("Ejercicio 6: ciudades:", comoTexto(ciudades));
+  }
+
+  function verForEach() {
+    const salida = document.querySelector("#salida6");
+    salida.textContent = "";
+    ciudades.forEach(function (ciudad, posicion) {
+      const badge = document.createElement("span");
+      badge.classList.add("badge", "text-bg-secondary", "m-1");
+      badge.textContent = posicion + " · " + ciudad;
+      salida.append(badge);
+    });
+  }
+
+  function verSlice() {
+    const trozo = ciudades.slice(2, 5);
+    escribirLineas("#salida6", [
+      "slice(2, 5) devuelve " + comoTexto(trozo),
+      "ciudades sigue teniendo " + ciudades.length + " elementos: no ha cambiado"
+    ]);
+    console.log("Ejercicio 6: slice", comoTexto(trozo));
+  }
+
+  function hacerSplice() {
+    if (ciudades.length < 3) {
+      escribirLineas("#salida6", ["Quedan muy pocas ciudades: pulsa «Restaurar»."]);
+      return;
+    }
+    const quitadas = ciudades.splice(2, 2);
+    escribirLineas("#salida6", [
+      "splice(2, 2) devuelve " + comoTexto(quitadas),
+      "ciudades ahora tiene " + ciudades.length + " elementos: sí ha cambiado"
+    ]);
+    mostrarCiudades();
+    console.log("Ejercicio 6: splice quitó", comoTexto(quitadas));
+  }
+
+  function restaurarCiudades() {
+    ciudades = [...ciudadesOriginal];
+    escribirLineas("#salida6", ["Ciudades restauradas: " + ciudades.length + " elementos."]);
+    mostrarCiudades();
+  }
+
+  function buscarCiudad() {
+    const nombre = document.querySelector("#buscarCiudad").value.trim();
+    if (nombre === "") {
+      escribirLineas("#salida6", ["Escribe el nombre de una ciudad."]);
+      return;
+    }
+    escribirLineas("#salida6", [
+      "includes(\"" + nombre + "\") → " + ciudades.includes(nombre),
+      "indexOf(\"" + nombre + "\") → " + ciudades.indexOf(nombre)
+    ]);
+    console.log("Ejercicio 6: buscar", nombre, ciudades.indexOf(nombre));
+  }
 }
-
-mostrarNotas();
-
-
-// ============================================================
-// Ejercicio 5 · map, filter y reduce
-// ============================================================
-
-const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-function verDobles() {
-  // TODO: con map(), un array nuevo con el doble de cada número.
-  // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
-}
-
-function verPares() {
-  // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
-}
-
-function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
-}
-
-function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
-}
-
-
-// ============================================================
-// Ejercicio 6 · Ciudades
-// ============================================================
-
-const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
-let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
-
-function mostrarCiudades() {
-  // TODO: vacía #ciudades y pon un badge por ciudad con su posición: «0 · Granada», «1 · Sevilla»...
-  //       Pista: forEach le pasa a tu función dos datos: function (ciudad, posicion) { ... }.
-}
-
-function verSlice() {
-  // TODO: guarda ciudades.slice(2, 5) y escribe en #salida6 qué devuelve y cuántas ciudades siguen en el array.
-}
-
-function hacerSplice() {
-  // TODO: si quedan menos de 3 ciudades, avisa en #salida6 de que hay que restaurar y no hagas nada más.
-  // TODO: si no, ciudades.splice(2, 2): escribe en #salida6 qué devuelve y cuántas quedan, y vuelve a pintar.
-}
-
-function restaurarCiudades() {
-  // TODO: vuelve a copiar ciudadesOriginal en ciudades y pinta.
-}
-
-function buscarCiudad() {
-  // TODO: lee #buscarCiudad (value y trim). Si está vacío, avisa.
-  // TODO: escribe en #salida6 lo que dan includes() e indexOf() con ese nombre. Si no está, indexOf da -1.
-}
-
-mostrarCiudades();
