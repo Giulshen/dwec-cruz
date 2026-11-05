@@ -26,17 +26,26 @@ function comoTexto(lista) {
   return "[" + lista.join(", ") + "]";
 }
 
+function escribirLineas(selector, lineas) {
+  const salida = document.querySelector(selector);
+  salida.textContent = "";
+
+  lineas.forEach(function (linea) {
+    const p = document.createElement("p");
+    p.classList.add("mb-1");
+    p.textContent = linea;
+    salida.append(p);
+  });
+}
+
 
 // ============================================================
 // Ejercicio 1 · Ficha de estudiante
 // ============================================================
 
-// TODO: completa el objeto literal con tus datos: nombre, apellidos, edad y curso.
-// TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
-
 const estudiante = {
   nombre: "Giulshen",
-  apellidos: "Hueso Cruz,
+  apellidos: "Hueso Cruz",
   edad: 26,
   curso: "2º DAW",
 
@@ -237,7 +246,7 @@ mostrarProductos();   // la tabla completa nada más cargar
 
 const alumno = {
   nombre: "Giulshen",
-  notas: []
+  notas: [],
 
   añadirNota: function (nota) {
     if (Number.isNaN(nota) || nota < 0 || nota > 10) {
@@ -291,7 +300,7 @@ function anadirNota() {
   }
   const notaNumero = Number(nota);
 
-  if (!alumno.anadirNota(notaNumero)) {
+  if (!alumno.añadirNota(notaNumero)) {
     error.textContent = "La nota debe ser un número entre 0 y 10.";
     error.classList.remove("d-none");
     return;
@@ -309,128 +318,121 @@ function borrarNotas() {
   alumno.notas = [];
   console.log("Ejercicio 4: notas borradas");
   mostrarNotas();
-
-  mostrarNotas();
-
-
-  // ============================================================
-  // Ejercicio 5 · map, filter y reduce
-  // ============================================================
-
-  const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-  function verDobles() {
-    const dobles = numeros.map(function (n) {
-      return n * 2;
-    });
-    escribirLineas("#salida5", ["map → " + comoTexto(dobles), "numeros → " + comoTexto(numeros)]);
-    console.log("Ejercicio 5: dobles", comoTexto(dobles));
-  }
-
-  function verPares() {
-    const pares = numeros.filter(function (n) {
-      return n % 2 === 0;
-    });
-    escribirLineas("#salida5", ["filter → " + comoTexto(pares), "numeros → " + comoTexto(numeros)]);
-    console.log("Ejercicio 5: pares", comoTexto(pares));
-  }
-
-  function verSuma() {
-    const suma = numeros.reduce(function (acumulado, n) {
-      return acumulado + n;
-    }, 0);
-    escribirLineas("#salida5", ["reduce → " + suma, "numeros → " + comoTexto(numeros)]);
-    console.log("Ejercicio 5: suma", suma);
-  }
-
-  function verCadena() {
-    const pares = numeros.filter(function (n) {
-      return n % 2 === 0;
-    });
-    const dobles = pares.map(function (n) {
-      return n * 2;
-    });
-    const suma = dobles.reduce(function (acumulado, n) {
-      return acumulado + n;
-    }, 0);
-
-    escribirLineas("#salida5", [
-      "1. filter → " + comoTexto(pares),
-      "2. map → " + comoTexto(dobles),
-      "3. reduce → " + suma
-    ]);
-    console.log("Ejercicio 5: cadena", suma);   // tiene que salir 60
-  }
-
-  // ============================================================
-  // Ejercicio 6 · Ciudades
-  // ============================================================
-
-  const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
-  let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
-
-  function mostrarCiudades() {
-    const contenidor = document.querySelector("#ciudades");
-    contenidor.textContent = "";
-    ciudades.forEach(function (ciudad) {
-      const badge = document.createElement("span");
-      badge.classList.add("badge", "text-bg-primary", "m-1");
-      badge.textContent = ciudad;
-      contenidor.append(badge);
-    });
-    console.log("Ejercicio 6: ciudades:", comoTexto(ciudades));
-  }
-
-  function verForEach() {
-    const salida = document.querySelector("#salida6");
-    salida.textContent = "";
-    ciudades.forEach(function (ciudad, posicion) {
-      const badge = document.createElement("span");
-      badge.classList.add("badge", "text-bg-secondary", "m-1");
-      badge.textContent = posicion + " · " + ciudad;
-      salida.append(badge);
-    });
-  }
-
-  function verSlice() {
-    const trozo = ciudades.slice(2, 5);
-    escribirLineas("#salida6", [
-      "slice(2, 5) devuelve " + comoTexto(trozo),
-      "ciudades sigue teniendo " + ciudades.length + " elementos: no ha cambiado"
-    ]);
-    console.log("Ejercicio 6: slice", comoTexto(trozo));
-  }
-
-  function hacerSplice() {
-    if (ciudades.length < 3) {
-      escribirLineas("#salida6", ["Quedan muy pocas ciudades: pulsa «Restaurar»."]);
-      return;
-    }
-    const quitadas = ciudades.splice(2, 2);
-    escribirLineas("#salida6", [
-      "splice(2, 2) devuelve " + comoTexto(quitadas),
-      "ciudades ahora tiene " + ciudades.length + " elementos: sí ha cambiado"
-    ]);
-    mostrarCiudades();
-    console.log("Ejercicio 6: splice quitó", comoTexto(quitadas));
-  }
-
-  function restaurarCiudades() {
-    ciudades = [...ciudadesOriginal];
-    escribirLineas("#salida6", ["Ciudades restauradas: " + ciudades.length + " elementos."]);
-    mostrarCiudades();
-  }
-
-  function buscarCiudad() {
-    const nombre = document.querySelector("#buscarCiudad").value.trim();
-    if (nombre === "") {
-      escribirLineas("#salida6", ["Escribe el nombre de una ciudad."]);
-      return;
-    }
-    escribirLineas("#salida6", [
-      "includes(\"" + nombre + "\") → " + ciudades.includes(nombre),
-      "indexOf(\"" + nombre + "\") → " + ciudades.indexOf(nombre)
-    ]);
-    console.log("Ejercicio 6: buscar", nombre, ciudades.indexOf(nombre));
-  }
 }
+mostrarNotas();
+
+
+// ============================================================
+// Ejercicio 5 · map, filter y reduce
+// ============================================================
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function verDobles() {
+  const dobles = numeros.map(function (n) {
+    return n * 2;
+  });
+  escribirLineas("#salida5", ["map → " + comoTexto(dobles), "numeros → " + comoTexto(numeros)]);
+  console.log("Ejercicio 5: dobles", comoTexto(dobles));
+}
+
+function verPares() {
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+  escribirLineas("#salida5", ["filter → " + comoTexto(pares), "numeros → " + comoTexto(numeros)]);
+  console.log("Ejercicio 5: pares", comoTexto(pares));
+}
+
+function verSuma() {
+  const suma = numeros.reduce(function (acumulado, n) {
+    return acumulado + n;
+  }, 0);
+  escribirLineas("#salida5", ["reduce → " + suma, "numeros → " + comoTexto(numeros)]);
+  console.log("Ejercicio 5: suma", suma);
+}
+
+function verCadena() {
+  const pares = numeros.filter(function (n) {
+    return n % 2 === 0;
+  });
+  const dobles = pares.map(function (n) {
+    return n * 2;
+  });
+  const suma = dobles.reduce(function (acumulado, n) {
+    return acumulado + n;
+  }, 0);
+
+  escribirLineas("#salida5", [
+    "1. filter → " + comoTexto(pares),
+    "2. map → " + comoTexto(dobles),
+    "3. reduce → " + suma
+  ]);
+  console.log("Ejercicio 5: cadena", suma);   // tiene que salir 60
+}
+
+
+// ============================================================
+// Ejercicio 6 · Ciudades
+// ============================================================
+
+const ciudadesOriginal = ["Granada", "Sevilla", "Málaga", "Córdoba", "Jaén", "Almería", "Cádiz", "Huelva"];
+let ciudades = [...ciudadesOriginal];   // una copia: splice cambia ciudades y así podemos restaurarla
+
+function mostrarCiudades() {
+  const contenedor = document.querySelector("#ciudades");
+  contenedor.textContent = "";
+
+  ciudades.forEach(function (ciudad, posicion) {
+    const badge = document.createElement("span");
+    badge.classList.add("badge", "text-bg-primary", "m-1");
+    badge.textContent = posicion + " · " + ciudad;
+    contenedor.append(badge);
+  });
+
+  console.log("Ejercicio 6: ciudades:", comoTexto(ciudades));
+}
+
+function verSlice() {
+  const trozo = ciudades.slice(2, 5);
+  escribirLineas("#salida6", [
+    "slice(2, 5) devuelve " + comoTexto(trozo),
+    "ciudades sigue teniendo " + ciudades.length + " elementos: no ha cambiado"
+  ]);
+  console.log("Ejercicio 6: slice", comoTexto(trozo));
+}
+
+function hacerSplice() {
+  if (ciudades.length < 3) {
+    escribirLineas("#salida6", ["Quedan muy pocas ciudades: pulsa «Restaurar»."]);
+    return;
+  }
+  const quitadas = ciudades.splice(2, 2);
+  escribirLineas("#salida6", [
+    "splice(2, 2) devuelve " + comoTexto(quitadas),
+    "ciudades ahora tiene " + ciudades.length + " elementos: sí ha cambiado"
+  ]);
+  mostrarCiudades();
+  console.log("Ejercicio 6: splice quitó", comoTexto(quitadas));
+}
+
+function restaurarCiudades() {
+  ciudades = [...ciudadesOriginal];
+  escribirLineas("#salida6", ["Ciudades restauradas: " + ciudades.length + " elementos."]);
+  mostrarCiudades();
+}
+
+function buscarCiudad() {
+  const nombre = document.querySelector("#buscarCiudad").value.trim();
+  if (nombre === "") {
+    escribirLineas("#salida6", ["Escribe el nombre de una ciudad."]);
+    return;
+  }
+  escribirLineas("#salida6", [
+    "includes(\"" + nombre + "\") → " + ciudades.includes(nombre),
+    "indexOf(\"" + nombre + "\") → " + ciudades.indexOf(nombre)
+  ]);
+  console.log("Ejercicio 6: buscar", nombre, ciudades.indexOf(nombre));
+}
+
+mostrarCiudades();   // pinta las ocho ciudades con su posición al cargar
