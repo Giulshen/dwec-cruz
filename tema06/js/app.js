@@ -22,6 +22,8 @@ console.log("app.js cargado");
 // (ya está hecha: úsala cuando quieras enseñar un array)
 // ============================================================
 
+//Si no pongo esto no me funciona el código de la consola, me da error de sintaxis
+
 function comoTexto(lista) {
   return "[" + lista.join(", ") + "]";
 }
