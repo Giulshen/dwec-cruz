@@ -33,27 +33,57 @@ function comoTexto(lista) {
 
 // TODO: completa el objeto literal con tus datos: nombre, apellidos, edad y curso.
 // TODO: añádele el método presentarse(), que devuelve una frase con this.nombre, this.apellidos, this.edad y this.curso.
-//       Por ejemplo: «Soy [nombre] [apellidos], tengo [edad] años y estudio [curso].»
+
 const estudiante = {
+  nombre: "Giulshen",
+  apellidos: "Hueso Cruz,
+  edad: 26,
+  curso: "2º DAW",
+
+  presentarse: function () {
+    return "Soy " + this.nombre + " " + this.apellidos + ", tengo " + this.edad + " años y estudio " + this.curso + ".";
+  }
 
 };
 
 function verFicha() {
-  // TODO: vacía #salida1 (textContent = "").
-  // TODO: crea un <ul class="list-group"> con un <li class="list-group-item"> por propiedad: «nombre: ...», «edad: ...».
-  //       Pista: guarda las claves en un array, ["nombre", "apellidos", "edad", "curso"], recórrelo con forEach
-  //       y lee cada valor con corchetes: estudiante[clave].
-  // TODO: debajo, un <p> con la frase de estudiante.presentarse().
-  // TODO: console.log() del objeto entero.
+  const salida = document.querySelector("#salida1");
+  salida.textContent = "";
+
+  const lista = document.createElement("ul");
+  lista.classList.add("list-group");
+
+  const claves = ["nombre", "apellidos", "edad", "curso"];
+  claves.forEach(function (clave) {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.textContent = clave + ": " + estudiante[clave];
+    lista.append(li);
+  });
+
+  const parrafo = document.createElement("p");
+  parrafo.classList.add("form-text");
+  parrafo.textContent = estudiante.presentarse();
+
+  salida.append(lista, parrafo);
+
+  console.log("Ejercicio 1 - Obejeto estudiante:", estudiante);
+
 }
 
 function cumplirAnios() {
-  // TODO: suma 1 a la edad del estudiante y vuelve a pintar la ficha (llama a verFicha()).
+  estudiante.edad++;
+  verFicha();
+  console.log("Ejercicio 1: edad ahora", estudiante.edad);
+  verFicha();
+
 }
 
 function quitarCurso() {
-  // TODO: borra la propiedad curso con delete y vuelve a pintar la ficha.
-  //       Fíjate en lo que sale ahora en el curso y explícalo en el README.
+  delete estudiante.curso;
+  verFicha();
+
+  console.log("Ejercicio 1: curso eliminado: ", estudiante.curso);
 }
 
 
@@ -101,12 +131,26 @@ function anadirColor() {
 }
 
 function quitarUltimo() {
-  // TODO: si la lista está vacía, avisa con avisar2() y no hagas nada más.
-  // TODO: si no, saca el último con pop(), vuelve a pintar la lista y di en la consola qué color ha salido.
+  if (colores.length === 0) {
+    avisar2("No hay colores que quitar.");
+    return;
+  }
+  document.querySelector("#aviso2").classList.add("d-none");
+  const colorQuitado = colores.pop();   // pop quita el último y lo devuelve
+  mostrarColores();
+  console.log("Ejercicio 2 - color quitado con pop:", colorQuitado, comoTexto(colores));
+
 }
 
 function quitarPrimero() {
-  // TODO: lo mismo que quitarUltimo(), pero sacando el primero con shift().
+  if (colores.length === 0) {
+    avisar2("No hay colores que quitar.");
+    return;
+  }
+  document.querySelector("#aviso2").classList.add("d-none");
+  const colorQuitado = colores.shift();   // shift quita el primero y lo devuelve
+  mostrarColores();
+  console.log("Ejercicio 2 - color quitado con shift:", colorQuitado, comoTexto(colores));
 }
 
 mostrarColores();   // pinta los tres colores de partida nada más cargar
