@@ -16,11 +16,6 @@
 console.log("app.js cargado");
 
 
-// ============================================================
-// Ayuda: pinta una lista de textos en un <ul class="list-group">
-// (ya está hecha, y su forEach ya lleva una flecha: es el modelo)
-// ============================================================
-
 function pintarLista(selector, textos) {
   const lista = document.querySelector(selector);
   lista.textContent = "";
@@ -38,13 +33,10 @@ function pintarLista(selector, textos) {
 // Ejercicio 1 · Precio final
 // ============================================================
 
-// TODO: calcularPrecio(base, iva, descuento) devuelve el precio final con return. No lee ni pinta nada.
-//       iva vale 21 por defecto y descuento, 0 por defecto (parámetros por defecto).
-//       Primero se resta el descuento (un tanto por ciento de la base) y después se suma el IVA.
-//       Comprueba en la consola: calcularPrecio(100) tiene que dar 121.
+
 function calcularPrecio(base, iva, descuento = 0) {
   const precioConDescuento = base - (base * descuento / 100);
-  const precioFinal = precioConDescacuento + (precioConDescuento * iva / 100);
+  const precioFinal = precioConDescuento + (precioConDescuento * iva / 100);
   return precioFinal;
 
 }
@@ -55,12 +47,47 @@ function formatearEuros(cantidad) {
 }
 
 function mostrarPrecio() {
-  // TODO: lee #base, #iva y #descuento (value). El IVA conviértelo con Number().
-  // TODO: si la base está vacía o es negativa, error en #error1 (quítale "d-none") y no sigas.
-  // TODO: si el descuento está vacío, llama a calcularPrecio(base, iva), sin el tercer argumento, para que se
-  //       use el valor por defecto. Si no, comprueba que está entre 0 y 100 y pásaselo.
-  // TODO: oculta el error y pinta el desglose en #salida1 con pintarLista():
-  //       «Precio sin IVA: …», «Descuento: … %», «IVA: … %» y «Precio final: …» (con formatearEuros).
+  const baseTexto = document.getElementById("base").value;
+  const ivaTexto = document.getElementById("iva").value;
+  const descuentoTexto = document.getElementById("descuento").value;
+
+  const error = document.getElementById("error1");
+
+  if (baseTexto === "") {
+    error.textContent = "Introduce un precio.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+  if (Number.isNaN(iva) || iva < 0) {
+    error.textContent = "Introduce un IVA que sea válido.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+
+  if (Number.isNaN(descuento) || descuento < 0 || descuento > 100) {
+    error.textContent = "Introduce un descuento que esté entre 0 y 100.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+  error.classList.add("d-none");
+
+  const precioFinal = calcularPrecio(base, iva, descuento);
+
+  const resultado = [
+    "Precio inicial: " + formatearEuros(base),
+    "Descuento: " + descuento + " %",
+    "IVA: " + iva + " %",
+    "Precio final: " + formatearEuros(precioFinal)
+  ];
+
+  pintarLista("#salida1", resultado);
+
+  console.log("Precio calculado;", precioFinal);
+
+
 }
 
 
