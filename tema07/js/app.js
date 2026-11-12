@@ -257,7 +257,7 @@ class Alumno {
     this.notas = [];
   }
   anadirNota(nota) {
-    if (Number.isFinite.NaN(nota) || nota < 0 || nota > 10) {
+    if (Number.isNaN(nota) || nota < 0 || nota > 10) {
       return false;
     }
 
@@ -363,55 +363,52 @@ function crearAlumno() {
 
   if (empresa === "") {
     alumno = new Alumno(nombre, curso);
+
   } else {
     alumno = new AlumnoFCT(nombre, curso, empresa);
 
   }
 
-  if (empresa === "") {
-    error.textContent = "La empresa no puede estar vacía.";
-    return;
-  }
   //para ver si las notas si están escritas
   if (notasTexto !== "") {
     const textosNotas = notasTexto.split(",");
 
-    if (textosNotas.some((texto) => texto.trim() === ""))) {
+    if (textosNotas.some((texto) => texto.trim() === "")) {
       error.textContent = "Las notas no pueden estar vacías.";
       error.classList.remove("d-none");
       return;
     }
+
+
+    const notas = textosNotas.map((texto) => Number(texto.trim()));
+
+    if (notas.some((nota) => Number.isNaN(nota) || nota < 0 || nota > 10)) {
+      error.textContent = "Las notas tienen que ser números entre 0 y 10.";
+      error.classList.remove("d-none");
+      return;
+    }
+
+    notas.forEach((nota) => alumno.anadirNota(nota));
   }
 
-  const notas = textos.Notas.map((texto) => Number(texto.trim()));
+  //Ahora meto el alumno en la lista
 
-  if (notas.some((nota) => Number.isNaN(nota) || nota < 0 || nota > 10)) {
-    error.textContent = "Las notas tienen que ser números entre 0 y 10.";
-    error.classList.remove("d-none");
-    return;
-  }
+  alumnos.push(alumno);
 
-  notas.forEach((nota) => alumno.anadirNota(nota));
+  error.classList.add("d-none");
+
+  //vacío el formulario
+
+  document.querySelector("#nombre5").value = "";
+  document.querySelector("#curso5").value = "";
+  document.querySelector("#empresa5").value = "";
+  document.querySelector("#notas5").value = "";
+
+  pintarAlumnos();
+
+  console.log("Ejercicio 5: alumno añadido", alumno);
+
 }
-
-//Ahora meto el alumno en la lista
-
-alumknos.push(alumno);
-
-error.classList.add("d-none");
-
-//vacío el formulario
-document.querySelector("#nombre5").value = "";
-document.querySelector("#curso5").value = "";
-document.querySelector("#empresa5").value = "";
-document.querySelector("#notas5").value = "";
-
-pintarAlumnos();
-
-console log(Ejercicio 5; alumno añadido", alumno);
-}
-
-
 // ============================================================
 // Ejercicio 6 · Fechas y textos
 // ============================================================
