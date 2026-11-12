@@ -256,23 +256,51 @@ class Alumno {
     this.curso = curso;
     this.notas = [];
   }
+  anadirNota(nota) {
+    if (Number.isFinite.NaN(nota) || nota < 0 || nota > 10) {
+      return false;
+    }
 
-  // TODO: anadirNota(nota): si la nota no es un número (Number.isNaN) o no está entre 0 y 10, devuelve false;
-  //       si es válida, la añade a this.notas y devuelve true.
-  // TODO: media(): 0 si no hay notas; si hay, la suma con reduce (con flecha) entre el número de notas.
-  // TODO: presentarse(): devuelve «Lucía Martín, de 2.º DAW».
-  //       Recuerda: en una clase, los métodos van sin function y sin comas entre ellos.
+    this.notas.push(nota);
+    return true;
+
+  }
+  media() {
+    if (this.notas.length === 0) {
+      return 0;
+    }
+
+    const suma = this.notas.reduce((total, nota) => total + nota, 0);
+    return suma / this.notas.length;
+  }
+
+  presentarse() {
+    return `Soy ${this.nombre}, del curso ${this.curso}`;
+  }
 }
 
 class AlumnoFCT extends Alumno {
-  // TODO: constructor(nombre, curso, empresa): primero super(nombre, curso) y después guarda la empresa.
-  // TODO: presentarse(): la frase de Alumno (super.presentarse()) más «, en prácticas en TecnoSur».
+  constructor(nombre, curso, empresa) {
+    super(nombre, curso);
+    this.empresa = empresa;
+  }
+
+  presentarse() {
+    return `${super.presentarse()} y hago las prácticas en ${this.empresa}`;
+  }
 }
 
 const alumnos = [];
+const alumno1 = new Alumno("Giulshen Hueso Cruz", "2º DAW");
+alumno1.anadirNota(8);
+alumno1.anadirNota(9);
 
-// TODO: cuando tengas las clases, crea aquí dos alumnos de partida y añádelos a alumnos con push:
-//       un Alumno con dos notas y un AlumnoFCT con otras dos.
+const alumno2 = new AlumnoFCT("Blanca Gónzalez Moreno", "2º DAW", "NTT DATA");
+alumno2.anadirNota(7);
+alumno2.anadirNota(6);
+
+alumnos.push(alumno1, alumno2);
+
 
 // Ya está hecha: pinta una tarjeta por alumno en #listaAlumnos y actualiza #totalAlumnos
 function pintarAlumnos() {
@@ -317,14 +345,71 @@ function pintarAlumnos() {
 }
 
 function crearAlumno() {
-  // TODO: lee #nombre5, #curso5, #empresa5 y #notas5 (value y trim). Si el nombre está vacío, error en #error5.
-  // TODO: si la empresa está vacía, crea un Alumno con new; si no, un AlumnoFCT.
-  // TODO: si hay notas, sepáralas con split(",") y conviértelas con map((texto) => Number(texto.trim())).
-  //       Si alguna no es válida (some), error en #error5 y no sigas. Si todas lo son, añádelas con anadirNota().
-  // TODO: añade el alumno a alumnos, oculta el error, vacía las casillas y llama a pintarAlumnos().
+  const nombre = document.querySelector("#nombre5").value.trim();
+  const curso = document.querySelector("#curso5").value.trim();
+  const empresa = document.querySelector("#empresa5").value.trim();
+  const notasTexto = document.querySelector("#notas5").value.trim();
+  const error = document.querySelector("#error5");
+
+  if (nombre === "") {
+    error.textContent = "El nombre del alumno no puede estar vacío.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+  //alumno FCT 
+
+  let alumno;
+
+  if (empresa === "") {
+    alumno = new Alumno(nombre, curso);
+  } else {
+    alumno = new AlumnoFCT(nombre, curso, empresa);
+
+  }
+
+  if (empresa === "") {
+    error.textContent = "La empresa no puede estar vacía.";
+    return;
+  }
+  //para ver si las notas si están escritas
+  if (notasTexto !== "") {
+    const textosNotas = notasTexto.split(",");
+
+    if (textosNotas.some((texto) => texto.trim() === ""))) {
+      error.textContent = "Las notas no pueden estar vacías.";
+      error.classList.remove("d-none");
+      return;
+    }
+  }
+
+  const notas = textos.Notas.map((texto) => Number(texto.trim()));
+
+  if (notas.some((nota) => Number.isNaN(nota) || nota < 0 || nota > 10)) {
+    error.textContent = "Las notas tienen que ser números entre 0 y 10.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+  notas.forEach((nota) => alumno.anadirNota(nota));
 }
 
+//Ahora meto el alumno en la lista
+
+alumknos.push(alumno);
+
+error.classList.add("d-none");
+
+//vacío el formulario
+document.querySelector("#nombre5").value = "";
+document.querySelector("#curso5").value = "";
+document.querySelector("#empresa5").value = "";
+document.querySelector("#notas5").value = "";
+
 pintarAlumnos();
+
+console log(Ejercicio 5; alumno añadido", alumno);
+}
 
 
 // ============================================================
