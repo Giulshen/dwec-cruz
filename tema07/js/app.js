@@ -409,19 +409,27 @@ function crearAlumno() {
   console.log("Ejercicio 5: alumno añadido", alumno);
 
 }
+
 // ============================================================
 // Ejercicio 6 · Fechas y textos
 // ============================================================
 
-// TODO: diasHasta(fecha) devuelve cuántos días faltan desde hoy hasta fecha (negativo si ya pasó).
-//       Pon hoy a medianoche (hoy.setHours(0, 0, 0, 0)), resta las fechas, divide entre los milisegundos
-//       de un día y redondea con Math.round: con el cambio de hora, la resta no siempre da un número entero.
 function diasHasta(fecha) {
+  const hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
+
+  const fechaObjetivo = new Date(fecha);
+  fechaObjetivo.setHours(0, 0, 0, 0);
+
+  const diferencia = fechaObjetivo - hoy;
+  const dias = Math.round(diferencia / (1000 * 60 * 60 * 24));
+
+  return dias;
 
 }
 
 function mostrarDias() {
-  const valor = document.querySelector("#fecha6").value;        // "2026-12-25", o "" si está vacía
+  const valor = document.querySelector("#fecha6").value;     // "2026-12-25", o "" si está vacía
   const salida = document.querySelector("#salida6a");
 
   if (valor === "") {
@@ -433,9 +441,31 @@ function mostrarDias() {
   const [anio, mes, dia] = valor.split("-").map(Number);
   const fecha = new Date(anio, mes - 1, dia);
 
-  // TODO: con diasHasta(fecha), escribe en #salida6a «Faltan N días: será viernes, 25 de diciembre de 2026.»,
-  //       «Es hoy…» o «Fue hace N días…». El nombre de la fecha, con toLocaleDateString("es-ES", {…}).
+
+  const dias = diasHasta(fecha);
+
+  const fechaTexto = fecha.toLocoleDateString("es-ES", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  })
+
+  if (dias > 0) {
+    salida.textContent = `Faltan ${dias} días para el ${fechaTexto}.`;
+
+  } else if (dias === 0) {
+    salida.textContent = `¡Hoy es ${fechaTexto}!`;
+
+  } else {
+    salida.textContent = `Han pasado ${-dias} días desde el ${fechaTexto}.`;
+
+  }
+
+  console.log("Ejercicio 6; días hasta", días);
 }
+
+
 
 // TODO: iniciales(nombreCompleto) devuelve las iniciales en mayúsculas: «lucía martín ortega» → «LMO».
 //       Encadena trim, split(" "), filter (para quitar las palabras vacías si hay espacios dobles),
