@@ -444,7 +444,7 @@ function mostrarDias() {
 
   const dias = diasHasta(fecha);
 
-  const fechaTexto = fecha.toLocoleDateString("es-ES", {
+  const fechaTexto = fecha.toLocaleDateString("es-ES", {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -466,21 +466,45 @@ function mostrarDias() {
 }
 
 
-
-// TODO: iniciales(nombreCompleto) devuelve las iniciales en mayúsculas: «lucía martín ortega» → «LMO».
-//       Encadena trim, split(" "), filter (para quitar las palabras vacías si hay espacios dobles),
-//       map (la primera letra de cada palabra, en mayúscula) y join("").
 function iniciales(nombreCompleto) {
+  const resultado = nombreCompleto
+    .trim()
+    .split(" ")
+    .filter((palabra) => palabra !== "")
+    .map((palabra) => palabra[0].toLowerCase())
+    .join("");
+
+  console.log("Ejercicio 6; iniciales", resultado);
+
+  return resultado;
 
 }
 
-// TODO: crearUsuario(nombreCompleto) devuelve las iniciales en minúsculas y tres cifras al azar, de 000 a 999:
-//       «lmo042». Pista: Math.random, Math.floor y padStart(3, "0").
 function crearUsuario(nombreCompleto) {
+  const letras = iniciales(nombreCompleto).toLowerCase();
 
+  const numero = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
+
+  const usuario = letras + numero;
+
+  console.log("Ejercicio 6; usuario creado", usuario);
+
+  return usuario;
 }
 
 function mostrarIniciales() {
-  // TODO: lee #nombre6. Si está vacío, avisa en #salida6b.
-  // TODO: si no, escribe en #salida6b «Iniciales: LMO · usuario: lmo042».
+  const nombre = document.querySelector("#nombre6").value.trim();
+  const salida = document.querySelector("#salida6b");
+
+  if (nombre === "") {
+    salida.textContent = "Escribe un nombre.";
+    return;
+  }
+
+  const letras = iniciales(nombre);
+  const usuario = crearUsuario(nombre);
+
+  salida.textContent = `Iniciales: ${letras}, usuario: ${usuario}`;
+
+  console.log("Ejercicio 6; iniciales y usuario", letras, usuario);
 }
