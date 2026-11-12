@@ -42,7 +42,10 @@ function pintarLista(selector, textos) {
 //       iva vale 21 por defecto y descuento, 0 por defecto (parámetros por defecto).
 //       Primero se resta el descuento (un tanto por ciento de la base) y después se suma el IVA.
 //       Comprueba en la consola: calcularPrecio(100) tiene que dar 121.
-function calcularPrecio(base, iva, descuento) {
+function calcularPrecio(base, iva, descuento = 0) {
+  const precioConDescuento = base - (base * descuento / 100);
+  const precioFinal = precioConDescacuento + (precioConDescuento * iva / 100);
+  return precioFinal;
 
 }
 
