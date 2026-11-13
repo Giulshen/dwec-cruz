@@ -51,10 +51,20 @@ function mostrarPrecio() {
   const ivaTexto = document.getElementById("iva").value;
   const descuentoTexto = document.getElementById("descuento").value;
 
+  const base = Number(baseTexto);
+  const iva = Number(ivaTexto);
+  const descuento = Number(descuentoTexto);
+
   const error = document.getElementById("error1");
 
   if (baseTexto === "") {
     error.textContent = "Introduce un precio.";
+    error.classList.remove("d-none");
+    return;
+  }
+
+  if (Number.isNaN(base) || base < 0) {
+    error.textContent = "Introduce un precio válido.";
     error.classList.remove("d-none");
     return;
   }
@@ -109,9 +119,6 @@ function comoTexto(pelicula) {
   return `${pelicula.titulo} (${pelicula.anio}) · ${pelicula.duracion} min`;
 }
 
-// Las cuatro funciones siguientes ya funcionan, pero sus callbacks están escritos con function, como en el tema 6.
-// TODO: pasa a flecha los cuatro callbacks (map, filter, sort y reduce). Si el cuerpo es solo una expresión,
-//       sin llaves ni return. Comprueba después que cada botón sigue dando lo mismo.
 
 function verTitulos() {
   const titulos = peliculas.map(pelicula => pelicula.titulo);
