@@ -469,7 +469,7 @@ function mostrarDias() {
 
   }
 
-  console.log("Ejercicio 6; días hasta", días);
+  console.log("Ejercicio 6; días hasta", dias);
 }
 
 
